@@ -6,12 +6,17 @@ import api from "../services/api.service";
 function AnimalType() {
   const [data, setdata] = useState([]);
 
+  const deleteById = async (id) => {
+    await api.deleteById(`animal-type/${id}`);
+    get();
+  };
+
   const get = async () => {
-      const {
-        data: { data },
-      } = await api.get("animal-type");
-      setdata(data);
-    };
+    const {
+      data: { data },
+    } = await api.get("animal-type");
+    setdata(data);
+  };
 
   useEffect(() => {
     get();
@@ -24,6 +29,7 @@ function AnimalType() {
         header={["Name", "Description"]}
         data={data}
         dataName={["name", "description"]}
+        deleteById={deleteById}
       />
     </div>
   );
