@@ -6,4 +6,8 @@ export function get(url) {
   return axios.get(`${BASE_URL}${url}`);
 }
 
-export default { get };
+export function deleteById(url) {
+  return axios.delete(`${BASE_URL}${url}`);
+}
+
+export default { get, deleteById };
