@@ -6,14 +6,15 @@ import api from "../services/api.service";
 function AnimalType() {
   const [data, setdata] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const get = async () => {
       const {
         data: { data },
       } = await api.get("animal-type");
       setdata(data);
     };
-    fetchData();
+
+  useEffect(() => {
+    get();
   }, []);
 
   return (
