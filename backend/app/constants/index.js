@@ -1,6 +1,7 @@
 const CONST = {
   MODEL: {
-    SAMPLE: "Sample",
+    ANIMAL: "Animal",
+    ANIMAL_TYPE: "AnimalType",
   },
 };
 
