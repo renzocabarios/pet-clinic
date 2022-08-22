@@ -4,7 +4,7 @@ import cors from "cors";
 
 import connectDB from "./app/db/index.js";
 import ENV from "./app/env/index.js";
-import sampleRoute from "./app/routes/sample.route.js";
+import animalTypeRoute from "./app/routes/animal-type.route.js";
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(bodyParser.json(), bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 //routes
-app.use("/api/v1/sample", sampleRoute);
+app.use("/api/animal-type", animalTypeRoute);
 
 //initialization
 const start = () => {
