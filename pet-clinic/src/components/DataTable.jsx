@@ -1,4 +1,4 @@
-function DataTable({ header, data, dataName }) {
+function DataTable({ header, data, dataName, deleteById }) {
   return (
     <div className="h-full w-full">
       <table className="w-full text-base border-collapse shadow-md">
@@ -29,7 +29,12 @@ function DataTable({ header, data, dataName }) {
                   <button className="px-5 py-2 shadow-md rounded-md">
                     Edit
                   </button>
-                  <button className="px-5 py-2 shadow-md rounded-md">
+                  <button
+                    className="px-5 py-2 shadow-md rounded-md"
+                    onClick={() => {
+                      deleteById(i._id);
+                    }}
+                  >
                     Delete
                   </button>
                 </td>
