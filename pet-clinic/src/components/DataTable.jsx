@@ -1,4 +1,4 @@
-function DataTable({ header, data, dataName, deleteById }) {
+function DataTable({ header, data, dataName, deleteById, updateById }) {
   return (
     <div className="h-full w-full">
       <table className="w-full text-base border-collapse shadow-md">
@@ -26,7 +26,12 @@ function DataTable({ header, data, dataName, deleteById }) {
                   );
                 })}
                 <td className="p-3">
-                  <button className="px-5 py-2 shadow-md rounded-md">
+                  <button
+                    className="px-5 py-2 shadow-md rounded-md"
+                    onClick={() => {
+                      updateById(i._id);
+                    }}
+                  >
                     Edit
                   </button>
                   <button
