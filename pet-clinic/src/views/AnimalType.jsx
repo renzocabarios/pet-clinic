@@ -15,6 +15,10 @@ function AnimalType() {
     get();
   };
 
+  const updateById = async (id) => {
+    navigate(`${id}/${CONST.ROUTE.EDIT}`);
+  };
+
   const get = async () => {
     const {
       data: { data },
@@ -41,6 +45,7 @@ function AnimalType() {
         data={data}
         dataName={["name", "description"]}
         deleteById={deleteById}
+        updateById={updateById}
       />
     </div>
   );
