@@ -11,14 +11,14 @@ function AnimalType() {
   const [data, setdata] = useState([]);
 
   const deleteById = async (id) => {
-    await api.deleteById(`animal-type/${id}`);
+    await api.deleteById(`${CONST.ROUTE.ANIMAL_TYPE}/${id}`);
     get();
   };
 
   const get = async () => {
     const {
       data: { data },
-    } = await api.get("animal-type");
+    } = await api.get(CONST.ROUTE.ANIMAL_TYPE);
     setdata(data);
   };
 
