@@ -10,8 +10,12 @@ export function post(url, body) {
   return axios.post(`${BASE_URL}${url}`, body);
 }
 
+export function update(url, body) {
+  return axios.patch(`${BASE_URL}${url}`, body);
+}
+
 export function deleteById(url) {
   return axios.delete(`${BASE_URL}${url}`);
 }
 
-export default { get, deleteById, post };
+export default { get, deleteById, post, update };
