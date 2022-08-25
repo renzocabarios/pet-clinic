@@ -10,6 +10,7 @@ import Animal from "./views/Animal/Animal";
 import AddAnimal from "./views/Animal/AddAnimal";
 import EditAnimal from "./views/Animal/EditAnimal";
 import CONST from "../src/constants/index";
+import RegisterUser from "./views/RegisterUser";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -32,6 +33,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route
           path={`${CONST.ROUTE.ANIMAL}/:id/${CONST.ROUTE.EDIT}`}
           element={<EditAnimal />}
+        />
+        <Route
+          path={`${CONST.ROUTE.USER}/register`}
+          element={<RegisterUser />}
         />
       </Route>
     </Routes>

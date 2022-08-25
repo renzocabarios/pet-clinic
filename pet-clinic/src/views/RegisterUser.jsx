@@ -1,54 +1,62 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import api from "../services/api.service";
 import CONST from "../constants/index";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import FormInput from "../components/FormInput";
 
-function EditAnimalType() {
+function RegisterUser() {
   const navigate = useNavigate();
-  const params = useParams();
 
   const [formdata, setformdata] = useState({
-    name: "",
-    description: "",
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
   });
 
-  const get = async () => {
-    const {
-      data: { data },
-    } = await api.get(`${CONST.ROUTE.ANIMAL_TYPE}/${params.id}`);
-    setformdata(data[0]);
-  };
-
-  useEffect(() => {
-    get();
-  }, []);
-
   const submit = async () => {
-    await api.update(`${CONST.ROUTE.ANIMAL_TYPE}/${params.id}`, formdata);
-    navigate(`/${CONST.ROUTE.ANIMAL_TYPE}`);
+    await api.post(CONST.ROUTE.USER, formdata);
+    navigate(`/`);
   };
 
   const inputs = [
     {
-      name: "name",
-      title: "Name",
-      defaultValue: formdata.name,
+      name: "email",
+      title: "Email",
       onChange: (e) => {
         setformdata((prevState) => ({
           ...prevState,
-          name: e.target.value,
+          email: e.target.value,
         }));
       },
     },
     {
-      name: "description",
-      title: "Description",
-      defaultValue: formdata.description,
+      name: "password",
+      title: "Password",
       onChange: (e) => {
         setformdata((prevState) => ({
           ...prevState,
-          description: e.target.value,
+          password: e.target.value,
+        }));
+      },
+    },
+    {
+      name: "firstName",
+      title: "First Name",
+      onChange: (e) => {
+        setformdata((prevState) => ({
+          ...prevState,
+          firstName: e.target.value,
+        }));
+      },
+    },
+    {
+      name: "lastName",
+      title: "Last Name",
+      onChange: (e) => {
+        setformdata((prevState) => ({
+          ...prevState,
+          lastName: e.target.value,
         }));
       },
     },
@@ -57,7 +65,7 @@ function EditAnimalType() {
   return (
     <div className="h-full w-full flex justify-center items-center">
       <div className="shadow-md p-10 flex flex-col items-center">
-        <h1>Edit Animal Type</h1>
+        <h1>Create User</h1>
         {inputs.map((i) => {
           return (
             <FormInput
@@ -69,11 +77,11 @@ function EditAnimalType() {
           );
         })}
         <button className="shadow-md p-2" onClick={submit}>
-          Update
+          Create Account
         </button>
       </div>
     </div>
   );
 }
 
-export default EditAnimalType;
+export default RegisterUser;
