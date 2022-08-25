@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import api from "../../services/api.service";
 import { useNavigate } from "react-router-dom";
 import CONST from "../../constants/index";
+import FormInput from "../../components/FormInput";
 
 function AddAnimal() {
   const navigate = useNavigate();
@@ -63,15 +64,12 @@ function AddAnimal() {
         <h1>Add Animal</h1>
         {inputs.map((i) => {
           return (
-            <div className="flex flex-col" key={i.name}>
-              <label htmlFor={i.name}>{i.title}</label>
-              <input
-                className="rounded border-0 outline-0 shadow-md p-2"
-                type="text"
-                name={i.name}
-                onChange={i.onChange}
-              />
-            </div>
+            <FormInput
+              name={i.name}
+              title={i.title}
+              onChange={i.onChange}
+              key={i.name}
+            />
           );
         })}
 
