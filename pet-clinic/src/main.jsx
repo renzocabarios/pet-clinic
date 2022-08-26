@@ -3,14 +3,15 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AnimalType from "./views/AnimalType";
-import AddAnimalType from "./views/AddAnimalType";
-import EditAnimalType from "./views/EditAnimalType";
+import AnimalType from "./views/AnimalType/AnimalType";
+import AddAnimalType from "./views/AnimalType/AddAnimalType";
+import EditAnimalType from "./views/AnimalType/EditAnimalType";
 import Animal from "./views/Animal/Animal";
 import AddAnimal from "./views/Animal/AddAnimal";
 import EditAnimal from "./views/Animal/EditAnimal";
 import CONST from "../src/constants/index";
 import RegisterUser from "./views/RegisterUser";
+import User from "./views/User/User";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -38,6 +39,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           path={`${CONST.ROUTE.USER}/register`}
           element={<RegisterUser />}
         />
+        <Route path={CONST.ROUTE.USER} element={<User />} />
       </Route>
     </Routes>
   </BrowserRouter>

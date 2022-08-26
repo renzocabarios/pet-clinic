@@ -1,12 +1,16 @@
 import NavBar from "./components/NavBar";
 import { Outlet } from "react-router-dom";
+import Sidenav from "./components/SideNav";
 
 function App() {
   return (
     <div className="h-screen">
-      <NavBar />
-      <div className="body">
-        <Outlet />
+      <div className="template h-full">
+        <Sidenav />
+        <NavBar />
+        <div className="m-3">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

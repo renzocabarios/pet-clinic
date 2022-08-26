@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import api from "../services/api.service";
-import CONST from "../constants/index";
+import api from "../../services/api.service";
+import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
-import FormInput from "../components/FormInput";
+import FormInput from "../../components/FormInput";
 
 function EditAnimalType() {
   const navigate = useNavigate();
@@ -64,6 +64,7 @@ function EditAnimalType() {
               name={i.name}
               title={i.title}
               onChange={i.onChange}
+              defaultValue={i.defaultValue}
               key={i.name}
             />
           );

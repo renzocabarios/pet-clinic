@@ -7,6 +7,8 @@ import FormInput from "../../components/FormInput";
 function AddAnimal() {
   const navigate = useNavigate();
 
+  const sexes = ["Male", "Female"];
+
   const [formdata, setformdata] = useState({
     name: "",
     breed: "",
@@ -55,8 +57,6 @@ function AddAnimal() {
       },
     },
   ];
-
-  const sexes = ["Male", "Female"];
 
   return (
     <div className="h-full w-full flex justify-center items-center">
@@ -110,7 +110,6 @@ function AddAnimal() {
           <select
             className="rounded border-0 outline-0 shadow-md p-2 w-full"
             name="animalType"
-            value={animalTypes[0]}
             onChange={(e) => {
               setformdata((prevState) => ({
                 ...prevState,
