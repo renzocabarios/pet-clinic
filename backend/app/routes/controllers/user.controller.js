@@ -1,6 +1,7 @@
 import service from "../services/user.service.js";
 import bcrypt from "bcrypt";
 import ENV from "../../env/index.js";
+import jwt from "jsonwebtoken";
 
 const getAll = async (req, res) => {
   const data = await service.getAll();
@@ -42,4 +43,27 @@ const deleteById = async (req, res) => {
   res.send({ data: [data] });
 };
 
-export { getAll, getById, add, update, deleteById, changePassword };
+const authUser = async (req, res) => {
+  const { email, password } = req.body;
+  const data = await service.getByEmail(email);
+
+  if (!data) {
+    res.send({ status: "fail", data: [], message: "User does not exist" });
+    return;
+  }
+  if (!(await bcrypt.compare(password, data.password))) {
+    res.send({ status: "fail", data: [], message: "Wrong Password" });
+    return;
+  }
+
+  res.send({
+    status: "success",
+    data: [data],
+    message: "Successfully authenticated",
+    token: jwt.sign({ _id: data._id }, ENV.JWT_KEY, {
+      expiresIn: "1h",
+    }),
+  });
+};
+
+export { getAll, getById, add, update, deleteById, changePassword, authUser };
