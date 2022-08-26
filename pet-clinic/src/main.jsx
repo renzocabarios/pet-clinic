@@ -12,9 +12,12 @@ import EditAnimal from "./views/Animal/EditAnimal";
 import CONST from "../src/constants/index";
 import RegisterUser from "./views/RegisterUser";
 import User from "./views/User/User";
+import { Provider } from "react-redux";
+import { store } from "./states/index";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
+    <Provider store={store}>
     <Routes>
       <Route path="/" element={<App />}>
         <Route path={CONST.ROUTE.ANIMAL_TYPE} element={<AnimalType />} />
@@ -42,5 +45,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path={CONST.ROUTE.USER} element={<User />} />
       </Route>
     </Routes>
+    </Provider>
   </BrowserRouter>
 );
