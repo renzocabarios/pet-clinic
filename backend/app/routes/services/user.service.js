@@ -26,4 +26,8 @@ const deleteById = async (_id) => {
   );
 };
 
-export default { getAll, getById, add, update, deleteById };
+const getByEmail = async (email) => {
+  return await model.findOne({ email, deleted: false });
+};
+
+export default { getAll, getById, add, update, deleteById, getByEmail };
