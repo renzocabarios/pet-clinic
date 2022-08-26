@@ -5,7 +5,23 @@
 .nav{
     height: 5%;
 }
+
+.template{
+    display: grid;
+    grid-template-columns: 17rem auto;
+    grid-template-rows: 4rem auto;
+}
   
 .body{
     height: 95%;
+}
+
+.sidenav{
+    display: grid;
+    grid-template-rows: 4rem auto 4rem;
+}
+
+.navbar{
+    display: grid;
+    grid-template-columns: 4rem auto 4rem;
 }
