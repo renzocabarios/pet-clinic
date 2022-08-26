@@ -3,6 +3,7 @@ const CONST = {
     ANIMAL: "Animal",
     ANIMAL_TYPE: "AnimalType",
     USER: "User",
+    DISEASE: "Disease",
   },
 };
 
