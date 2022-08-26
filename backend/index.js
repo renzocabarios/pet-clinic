@@ -7,6 +7,7 @@ import ENV from "./app/env/index.js";
 import animalTypeRoute from "./app/routes/animal-type.route.js";
 import animalRoute from "./app/routes/animal.route.js";
 import userRoute from "./app/routes/user.route.js";
+import diseaseRoute from "./app/routes/disease.route.js";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(cors());
 app.use("/api/animal-type", animalTypeRoute);
 app.use("/api/animal", animalRoute);
 app.use("/api/user", userRoute);
+app.use("/api/disease", diseaseRoute);
 
 //initialization
 const start = () => {
