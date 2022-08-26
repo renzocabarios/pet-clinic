@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import DataTable from "../components/DataTable";
-import api from "../services/api.service";
+import DataTable from "../../components/DataTable";
+import api from "../../services/api.service";
 import { useNavigate } from "react-router-dom";
-import CONST from "../constants/index";
+import CONST from "../../constants/index";
+import PrimaryButton from "../../components/PrimaryButton";
 
 function AnimalType() {
   const navigate = useNavigate();
@@ -31,15 +32,13 @@ function AnimalType() {
   }, []);
 
   return (
-    <div className="h-full w-full">
-      <button
-        className="shadow-md rounded-md"
+    <>
+      <PrimaryButton
+        title={"Add"}
         onClick={() => {
           navigate(CONST.ROUTE.ADD);
         }}
-      >
-        Add
-      </button>
+      />
       <DataTable
         header={["Name", "Description"]}
         data={data}
@@ -47,7 +46,7 @@ function AnimalType() {
         deleteById={deleteById}
         updateById={updateById}
       />
-    </div>
+    </>
   );
 }
 

@@ -1,33 +1,30 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { useEffect } from "react";
 import DataTable from "../../components/DataTable";
-import api from "../../services/api.service";
 import { useNavigate } from "react-router-dom";
 import CONST from "../../constants/index";
 import PrimaryButton from "../../components/PrimaryButton";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchData, deleteData } from "../../states/reducers/disease.reducer";
 
-function Animal() {
+function Disease() {
+  const data = useSelector((state) => {
+    return state.diseaseReducer.entries;
+  });
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
-  const [data, setdata] = useState([]);
-
   const deleteById = async (id) => {
-    await api.deleteById(`${CONST.ROUTE.ANIMAL}/${id}`);
-    get();
+    dispatch(deleteData({ id }));
   };
 
   const updateById = async (id) => {
     navigate(`${id}/${CONST.ROUTE.EDIT}`);
   };
 
-  const get = async () => {
-    const {
-      data: { data },
-    } = await api.get(CONST.ROUTE.ANIMAL);
-    setdata(data);
-  };
-
   useEffect(() => {
-    get();
+    dispatch(fetchData());
   }, []);
 
   return (
@@ -39,9 +36,9 @@ function Animal() {
         }}
       />
       <DataTable
-        header={["Name", "Breed", "Age", "Sex"]}
+        header={["Name", "Description"]}
         data={data}
-        dataName={["name", "breed", "age", "sex"]}
+        dataName={["name", "description"]}
         deleteById={deleteById}
         updateById={updateById}
       />
@@ -49,4 +46,4 @@ function Animal() {
   );
 }
 
-export default Animal;
+export default Disease;
