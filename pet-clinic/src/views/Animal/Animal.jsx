@@ -3,6 +3,7 @@ import DataTable from "../../components/DataTable";
 import api from "../../services/api.service";
 import { useNavigate } from "react-router-dom";
 import CONST from "../../constants/index";
+import PrimaryButton from "../../components/PrimaryButton";
 
 function Animal() {
   const navigate = useNavigate();
@@ -30,15 +31,13 @@ function Animal() {
   }, []);
 
   return (
-    <div className="h-full w-full">
-      <button
-        className="shadow-md rounded-md"
+    <>
+      <PrimaryButton
+        title={"Add"}
         onClick={() => {
           navigate(CONST.ROUTE.ADD);
         }}
-      >
-        Add
-      </button>
+      />
       <DataTable
         header={["Name", "Breed", "Age", "Sex"]}
         data={data}
@@ -46,7 +45,7 @@ function Animal() {
         deleteById={deleteById}
         updateById={updateById}
       />
-    </div>
+    </>
   );
 }
 

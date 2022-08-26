@@ -79,6 +79,7 @@ function EditAnimal() {
               name={i.name}
               title={i.title}
               onChange={i.onChange}
+              defaultValue={i.defaultValue}
               key={i.name}
             />
           );
