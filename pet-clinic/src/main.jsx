@@ -17,45 +17,46 @@ import EditDisease from "./views/Disease/EditDisease";
 import User from "./views/User/User";
 import { Provider } from "react-redux";
 import { store } from "./states/index";
+import Dashboard from "./Dashboard";
+import LoginUser from "./views/LoginUser";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Provider store={store}>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path={CONST.ROUTE.ANIMAL_TYPE} element={<AnimalType />} />
-          <Route
-            path={`${CONST.ROUTE.ANIMAL_TYPE}/${CONST.ROUTE.ADD}`}
-            element={<AddAnimalType />}
-          />
-          <Route
-            path={`${CONST.ROUTE.ANIMAL_TYPE}/:id/${CONST.ROUTE.EDIT}`}
-            element={<EditAnimalType />}
-          />
-          <Route path={CONST.ROUTE.ANIMAL} element={<Animal />} />
-          <Route
-            path={`${CONST.ROUTE.ANIMAL}/${CONST.ROUTE.ADD}`}
-            element={<AddAnimal />}
-          />
-          <Route
-            path={`${CONST.ROUTE.ANIMAL}/:id/${CONST.ROUTE.EDIT}`}
-            element={<EditAnimal />}
-          />
-          <Route
-            path={`${CONST.ROUTE.USER}/register`}
-            element={<RegisterUser />}
-          />
-          <Route path={CONST.ROUTE.USER} element={<User />} />
-
-          <Route path={CONST.ROUTE.DISEASE} element={<Disease />} />
-          <Route
-            path={`${CONST.ROUTE.DISEASE}/${CONST.ROUTE.ADD}`}
-            element={<AddDisease />}
-          />
-          <Route
-            path={`${CONST.ROUTE.DISEASE}/:id/${CONST.ROUTE.EDIT}`}
-            element={<EditDisease />}
-          />
+          <Route path={CONST.ROUTE.REGISTER} element={<RegisterUser />} />
+          <Route path={CONST.ROUTE.LOGIN} element={<LoginUser />} />
+          <Route path={`/${CONST.ROUTE.DASHBOARD}`} element={<Dashboard />}>
+            <Route path={CONST.ROUTE.ANIMAL_TYPE} element={<AnimalType />} />
+            <Route
+              path={`${CONST.ROUTE.ANIMAL_TYPE}/${CONST.ROUTE.ADD}`}
+              element={<AddAnimalType />}
+            />
+            <Route
+              path={`${CONST.ROUTE.ANIMAL_TYPE}/:id/${CONST.ROUTE.EDIT}`}
+              element={<EditAnimalType />}
+            />
+            <Route path={CONST.ROUTE.ANIMAL} element={<Animal />} />
+            <Route
+              path={`${CONST.ROUTE.ANIMAL}/${CONST.ROUTE.ADD}`}
+              element={<AddAnimal />}
+            />
+            <Route
+              path={`${CONST.ROUTE.ANIMAL}/:id/${CONST.ROUTE.EDIT}`}
+              element={<EditAnimal />}
+            />
+            <Route path={CONST.ROUTE.USER} element={<User />} />
+            <Route path={CONST.ROUTE.DISEASE} element={<Disease />} />
+            <Route
+              path={`${CONST.ROUTE.DISEASE}/${CONST.ROUTE.ADD}`}
+              element={<AddDisease />}
+            />
+            <Route
+              path={`${CONST.ROUTE.DISEASE}/:id/${CONST.ROUTE.EDIT}`}
+              element={<EditDisease />}
+            />
+          </Route>
         </Route>
       </Routes>
     </Provider>

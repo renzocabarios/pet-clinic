@@ -6,5 +6,9 @@ export default {
     DISEASE: "disease",
     ADD: "add",
     EDIT: "edit",
+    AUTH: "auth",
+    LOGIN: "login",
+    REGISTER: "register",
+    DASHBOARD: "dashboard",
   },
 };
