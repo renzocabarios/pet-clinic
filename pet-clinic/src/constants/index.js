@@ -7,5 +7,6 @@ export default {
     ADD: "add",
     EDIT: "edit",
     AUTH: "auth",
+    LOGIN: "login",
   },
 };
