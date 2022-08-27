@@ -8,5 +8,6 @@ export default {
     EDIT: "edit",
     AUTH: "auth",
     LOGIN: "login",
+    REGISTER: "register",
   },
 };
