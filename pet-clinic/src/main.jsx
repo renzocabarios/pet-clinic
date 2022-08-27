@@ -17,12 +17,14 @@ import EditDisease from "./views/Disease/EditDisease";
 import User from "./views/User/User";
 import { Provider } from "react-redux";
 import { store } from "./states/index";
+import LoginUser from "./views/LoginUser";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Provider store={store}>
       <Routes>
         <Route path="/" element={<App />}>
+          <Route path={CONST.ROUTE.LOGIN} element={<LoginUser />} />
           <Route path={CONST.ROUTE.ANIMAL_TYPE} element={<AnimalType />} />
           <Route
             path={`${CONST.ROUTE.ANIMAL_TYPE}/${CONST.ROUTE.ADD}`}
