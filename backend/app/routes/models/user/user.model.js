@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
 import paginate from "mongoose-paginate";
-import CONST from "../../constants/index.js";
+import CONST from "../../../constants/index.js";
 
 const options = {
   timestamps: {
     createdAt: "DateCreated",
     updatedAt: "DateUpdated",
   },
+  discriminatorKey: "type",
 };
 
 const schema = mongoose.Schema(
@@ -46,4 +47,4 @@ const schema = mongoose.Schema(
 
 schema.plugin(paginate);
 
-export default mongoose.model(CONST.MODEL.USER, schema);
+export default mongoose.model(CONST.MODEL.USER.DEFAULT, schema);
