@@ -5,10 +5,10 @@ function Sidenav() {
   const navigate = useNavigate();
 
   const links = [
-    { name: "User", route: `/${CONST.ROUTE.USER}` },
-    { name: "Animal Type", route: `/${CONST.ROUTE.ANIMAL_TYPE}` },
-    { name: "Animal", route: `/${CONST.ROUTE.ANIMAL}` },
-    { name: "Disease", route: `/${CONST.ROUTE.DISEASE}` },
+    { name: "User", route: `${CONST.ROUTE.USER}` },
+    { name: "Animal Type", route: `${CONST.ROUTE.ANIMAL_TYPE}` },
+    { name: "Animal", route: `${CONST.ROUTE.ANIMAL}` },
+    { name: "Disease", route: `${CONST.ROUTE.DISEASE}` },
   ];
 
   return (

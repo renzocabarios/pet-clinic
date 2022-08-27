@@ -3,6 +3,7 @@ import DataTable from "../../components/DataTable";
 import api from "../../services/api.service";
 import { useNavigate } from "react-router-dom";
 import CONST from "../../constants/index";
+import PrimaryButton from "../../components/PrimaryButton";
 
 function User() {
   const navigate = useNavigate();
@@ -31,14 +32,13 @@ function User() {
 
   return (
     <>
-      <button
-        className="shadow-md rounded-md px-6 py-3 bg-sky-500 text-white"
+      <PrimaryButton
+        title={"Add"}
         onClick={() => {
           navigate(CONST.ROUTE.ADD);
         }}
-      >
-        Add
-      </button>
+      />
+
       <DataTable
         header={["First Name", "Last Name", "Email"]}
         data={data}
