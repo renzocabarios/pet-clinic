@@ -9,5 +9,6 @@ export default {
     AUTH: "auth",
     LOGIN: "login",
     REGISTER: "register",
+    DASHBOARD: "dashboard",
   },
 };
