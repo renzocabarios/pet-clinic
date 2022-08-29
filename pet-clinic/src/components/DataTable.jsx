@@ -5,7 +5,7 @@ function DataTable({ header, data, dataName, deleteById, updateById }) {
     <div className="">
       <table className="rounded-lg w-full text-base border-collapse shadow-md">
         <thead>
-          <tr className="rounded-lg text-center bg-sky-500 text-white text-lg">
+          <tr className="rounded-lg text-center bg-sky-700 text-white text-lg">
             {header.map((i) => {
               return (
                 <th className="p-3" key={i}>

@@ -3,6 +3,7 @@ import api from "../../services/api.service";
 import CONST from "../../constants/index";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../../components/FormInput";
+import PrimaryForm from "../../components/PrimaryForm";
 
 function AddDisease() {
   const navigate = useNavigate();
@@ -42,8 +43,7 @@ function AddDisease() {
 
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <div className="shadow-md p-10 flex flex-col items-center">
-        <h1>Add Disease</h1>
+      <PrimaryForm title="Add Disease">
         {inputs.map((i) => {
           return (
             <FormInput
@@ -57,7 +57,7 @@ function AddDisease() {
         <button className="shadow-md p-2" onClick={submit}>
           Add
         </button>
-      </div>
+      </PrimaryForm>
     </div>
   );
 }

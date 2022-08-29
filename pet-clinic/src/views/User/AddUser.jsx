@@ -1,40 +1,28 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import api from "../../services/api.service";
 import CONST from "../../constants/index";
-import { useNavigate, useParams } from "react-router-dom";
-import PrimaryForm from "../../components/PrimaryForm";
+import { useNavigate } from "react-router-dom";
 import FormInput from "../../components/FormInput";
+import PrimaryForm from "../../components/PrimaryForm";
+import PrimaryButton from "../../components/PrimaryButton";
 
-function EditAnimalType() {
+function AddUser() {
   const navigate = useNavigate();
-  const params = useParams();
 
   const [formdata, setformdata] = useState({
     name: "",
     description: "",
   });
 
-  const get = async () => {
-    const {
-      data: { data },
-    } = await api.get(`${CONST.ROUTE.ANIMAL_TYPE}/${params.id}`);
-    setformdata(data[0]);
-  };
-
-  useEffect(() => {
-    get();
-  }, []);
-
   const submit = async () => {
-    await api.update(`${CONST.ROUTE.ANIMAL_TYPE}/${params.id}`, formdata);
-    navigate(`/${CONST.ROUTE.ANIMAL_TYPE}`);
+    await api.post(CONST.ROUTE.DISEASE, formdata);
+    navigate(`/${CONST.ROUTE.DISEASE}`);
   };
 
   const inputs = [
     {
       name: "name",
       title: "Name",
-      defaultValue: formdata.name,
       onChange: (e) => {
         setformdata((prevState) => ({
           ...prevState,
@@ -45,7 +33,6 @@ function EditAnimalType() {
     {
       name: "description",
       title: "Description",
-      defaultValue: formdata.description,
       onChange: (e) => {
         setformdata((prevState) => ({
           ...prevState,
@@ -57,24 +44,21 @@ function EditAnimalType() {
 
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <PrimaryForm title="Edit Animal Type">
+      <PrimaryForm title="Add Disease">
         {inputs.map((i) => {
           return (
             <FormInput
               name={i.name}
               title={i.title}
               onChange={i.onChange}
-              defaultValue={i.defaultValue}
               key={i.name}
             />
           );
         })}
-        <button className="shadow-md p-2" onClick={submit}>
-          Update
-        </button>
+        <PrimaryButton title="Add" onClick={submit} />
       </PrimaryForm>
     </div>
   );
 }
 
-export default EditAnimalType;
+export default AddUser;
