@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import FormInput from "../components/FormInput";
 import PrimaryButton from "../components/PrimaryButton";
+import PrimaryForm from "../components/PrimaryForm";
 import { useDispatch, useSelector } from "react-redux";
 import { authUser } from "../states/reducers/auth.reducer";
 import { useNavigate } from "react-router-dom";
@@ -53,7 +54,7 @@ function LoginUser() {
 
   return (
     <div className="h-screen flex justify-center items-center">
-      <div className="shadow-md p-10 flex flex-col items-center">
+      <PrimaryForm>
         <h1>Login</h1>
         {inputs.map((i) => {
           return (
@@ -72,7 +73,7 @@ function LoginUser() {
             submit();
           }}
         />
-      </div>
+      </PrimaryForm>
     </div>
   );
 }

@@ -44,8 +44,7 @@ function AddUser() {
 
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <PrimaryForm>
-        <h1 className="font-bold text-3xl">Add Disease</h1>
+      <PrimaryForm title="Add Disease">
         {inputs.map((i) => {
           return (
             <FormInput

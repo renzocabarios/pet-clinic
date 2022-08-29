@@ -3,6 +3,7 @@ import api from "../../services/api.service";
 import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
 import FormInput from "../../components/FormInput";
+import PrimaryForm from "../../components/PrimaryForm";
 
 function EditAnimal() {
   const navigate = useNavigate();
@@ -71,8 +72,7 @@ function EditAnimal() {
 
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <div className="shadow-md p-10 flex flex-col items-center">
-        <h1>Edit Animal Type</h1>
+      <PrimaryForm title="Edit Animal Type">
         {inputs.map((i) => {
           return (
             <FormInput
@@ -87,7 +87,7 @@ function EditAnimal() {
         <div className="flex flex-col" key="age">
           <label htmlFor="age">Age</label>
           <input
-            className="rounded border-0 outline-0 shadow-md p-2"
+            className="rounded border-0 outline-0 shadow-md p-2 bg-sky-500 text-white"
             type="text"
             name="age"
             value={formdata.age}
@@ -103,7 +103,7 @@ function EditAnimal() {
         <div className="flex flex-col w-full">
           <label htmlFor="sex">Sex</label>
           <select
-            className="rounded border-0 outline-0 shadow-md p-2 w-full"
+            className="rounded border-0 outline-0 shadow-md p-2 w-full bg-sky-500 text-white"
             name="sex"
             onChange={(e) => {
               setformdata((prevState) => ({
@@ -125,7 +125,7 @@ function EditAnimal() {
         <div className="flex flex-col w-full">
           <label htmlFor="animalType">Animal Type</label>
           <select
-            className="rounded border-0 outline-0 shadow-md p-2 w-full"
+            className="rounded border-0 outline-0 shadow-md p-2 w-full bg-sky-500 text-white"
             name="animalType"
             value={animalTypes[0]}
             onChange={(e) => {
@@ -148,7 +148,7 @@ function EditAnimal() {
         <button className="shadow-md p-2" onClick={submit}>
           Update
         </button>
-      </div>
+      </PrimaryForm>
     </div>
   );
 }

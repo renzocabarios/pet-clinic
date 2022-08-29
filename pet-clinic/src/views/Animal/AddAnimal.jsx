@@ -3,6 +3,7 @@ import api from "../../services/api.service";
 import { useNavigate } from "react-router-dom";
 import CONST from "../../constants/index";
 import FormInput from "../../components/FormInput";
+import PrimaryForm from "../../components/PrimaryForm";
 
 function AddAnimal() {
   const navigate = useNavigate();
@@ -59,9 +60,8 @@ function AddAnimal() {
   ];
 
   return (
-    <div className="h-full w-full flex justify-center items-center">
-      <div className="shadow-md p-10 flex flex-col items-center">
-        <h1>Add Animal</h1>
+    <div className="h-full w-full flex justify-center items-center text-white">
+      <PrimaryForm title="Add Animal">
         {inputs.map((i) => {
           return (
             <FormInput
@@ -76,7 +76,7 @@ function AddAnimal() {
         <div className="flex flex-col" key="age">
           <label htmlFor="age">Age</label>
           <input
-            className="rounded border-0 outline-0 shadow-md p-2"
+            className="rounded border-0 outline-0 shadow-md p-2 bg-sky-500"
             type="text"
             name="age"
             value={formdata.age}
@@ -92,7 +92,7 @@ function AddAnimal() {
         <div className="flex flex-col w-full">
           <label htmlFor="sex">Sex</label>
           <select
-            className="rounded border-0 outline-0 shadow-md p-2 w-full"
+            className="rounded border-0 outline-0 shadow-md p-2 w-full bg-sky-500"
             name="sex"
           >
             {sexes.map((e) => {
@@ -108,7 +108,7 @@ function AddAnimal() {
         <div className="flex flex-col w-full">
           <label htmlFor="animalType">Animal Type</label>
           <select
-            className="rounded border-0 outline-0 shadow-md p-2 w-full"
+            className="rounded border-0 outline-0 shadow-md p-2 w-full bg-sky-500"
             name="animalType"
             onChange={(e) => {
               setformdata((prevState) => ({
@@ -129,7 +129,7 @@ function AddAnimal() {
         <button className="shadow-md p-2" onClick={submit}>
           Add
         </button>
-      </div>
+      </PrimaryForm>
     </div>
   );
 }

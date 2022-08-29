@@ -3,6 +3,7 @@ import api from "../../services/api.service";
 import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
 import FormInput from "../../components/FormInput";
+import PrimaryForm from "../../components/PrimaryForm";
 import { useDispatch } from "react-redux";
 import { updateData } from "../../states/reducers/disease.reducer";
 
@@ -60,8 +61,7 @@ function EditDisease() {
 
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <div className="shadow-md p-10 flex flex-col items-center">
-        <h1>Edit Disease</h1>
+      <PrimaryForm title="Edit Disease">
         {inputs.map((i) => {
           return (
             <FormInput
@@ -76,7 +76,7 @@ function EditDisease() {
         <button className="shadow-md p-2" onClick={submit}>
           Update
         </button>
-      </div>
+      </PrimaryForm>
     </div>
   );
 }
