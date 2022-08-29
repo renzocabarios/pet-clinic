@@ -12,7 +12,7 @@ function Sidenav() {
   ];
 
   return (
-    <div className="sidenav row-span-2 shadow bg-sky-500">
+    <div className="sidenav row-span-2 shadow bg-sky-700">
       <div className="flex justify-center items-center text-3xl text-white">
         Pet Clinic
       </div>
@@ -24,14 +24,14 @@ function Sidenav() {
               onClick={() => {
                 navigate(e.route);
               }}
-              className="shadow p-2 rounded-md bg-sky-600 text-white text-center"
+              className="p-2 rounded-md  text-white text-center"
             >
               {e.name}
             </button>
           );
         })}
       </div>
-      <div className="flex justify-center items-center text-2xl text-white bg-sky-600">
+      <div className="flex justify-center items-center text-2xl text-white ">
         Log out
       </div>
     </div>
