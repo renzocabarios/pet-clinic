@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../../services/api.service";
 import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
+import PrimaryForm from "../../components/PrimaryForm";
 import FormInput from "../../components/FormInput";
 
 function EditAnimalType() {
@@ -56,8 +57,7 @@ function EditAnimalType() {
 
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <div className="shadow-md p-10 flex flex-col items-center">
-        <h1>Edit Animal Type</h1>
+      <PrimaryForm title="Edit Animal Type">
         {inputs.map((i) => {
           return (
             <FormInput
@@ -72,7 +72,7 @@ function EditAnimalType() {
         <button className="shadow-md p-2" onClick={submit}>
           Update
         </button>
-      </div>
+      </PrimaryForm>
     </div>
   );
 }
