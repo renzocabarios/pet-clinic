@@ -7,6 +7,7 @@ const CONST = {
       ADOPTER: "ADOPTER",
     },
     DISEASE: "Disease",
+    POSITION: "Position",
   },
 };
 
