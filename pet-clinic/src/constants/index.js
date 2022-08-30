@@ -2,6 +2,7 @@ export default {
   ROUTE: {
     ANIMAL_TYPE: "animal-type",
     USER: "user",
+    PERSONNEL: "personnel",
     ANIMAL: "animal",
     DISEASE: "disease",
     ADD: "add",
