@@ -16,5 +16,6 @@ export default {
   SLICE: {
     POSITION: "position",
     PERSONNEL: "personnel",
+    ANIMAL_TYPE: "animal-type",
   },
 };
