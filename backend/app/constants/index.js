@@ -4,7 +4,7 @@ const CONST = {
     ANIMAL_TYPE: "AnimalType",
     USER: {
       DEFAULT: "User",
-      ADOPTER: "ADOPTER",
+      PERSONNEL: "Personnel",
     },
     DISEASE: "Disease",
     POSITION: "Position",

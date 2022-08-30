@@ -9,6 +9,7 @@ import animalRoute from "./app/routes/animal.route.js";
 import userRoute from "./app/routes/user.route.js";
 import diseaseRoute from "./app/routes/disease.route.js";
 import positionRoute from "./app/routes/position.route.js";
+import personnelRoute from "./app/routes/personnel.route.js";
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use("/api/animal", animalRoute);
 app.use("/api/user", userRoute);
 app.use("/api/disease", diseaseRoute);
 app.use("/api/position", positionRoute);
+app.use("/api/personnel", personnelRoute);
 
 //initialization
 const start = () => {

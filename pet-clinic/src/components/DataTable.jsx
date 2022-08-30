@@ -24,9 +24,19 @@ function DataTable({ header, data, dataName, deleteById, updateById }) {
                 key={i._id}
               >
                 {dataName.map((name) => {
+                  let value = name;
+                  if (name.includes(".")) {
+                    const keys = name.split(".");
+                    let tempValue = i[keys[0]];
+                    keys.shift();
+                    keys.forEach((element) => {
+                      tempValue = tempValue[element];
+                    });
+                    value = tempValue;
+                  }
                   return (
                     <td className="p-3" key={name}>
-                      {i[name]}
+                      {name.includes(".") ? value : i[name]}
                     </td>
                   );
                 })}
