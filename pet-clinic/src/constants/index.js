@@ -15,5 +15,6 @@ export default {
   },
   SLICE: {
     POSITION: "position",
+    PERSONNEL: "personnel",
   },
 };
