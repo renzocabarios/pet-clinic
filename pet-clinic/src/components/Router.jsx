@@ -17,6 +17,9 @@ import AddDisease from "../views/Disease/AddDisease";
 import EditDisease from "../views/Disease/EditDisease";
 import User from "../views/User/User";
 import AddUser from "../views/User/AddUser";
+import Position from "../views/Position/Position";
+import AddPosition from "../views/Position/AddPosition";
+import EditPosition from "../views/Position/EditPosition";
 
 function Router() {
   const location = useLocation();
@@ -91,6 +94,18 @@ function Router() {
         {
           path: `${CONST.ROUTE.USER}/${CONST.ROUTE.ADD}`,
           element: <AddUser />,
+        },
+        {
+          path: CONST.ROUTE.POSITION,
+          element: <Position />,
+        },
+        {
+          path: `${CONST.ROUTE.POSITION}/${CONST.ROUTE.ADD}`,
+          element: <AddPosition />,
+        },
+        {
+          path: `${CONST.ROUTE.POSITION}/:id/${CONST.ROUTE.EDIT}`,
+          element: <EditPosition />,
         },
       ],
     },
