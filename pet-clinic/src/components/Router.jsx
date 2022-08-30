@@ -22,6 +22,7 @@ import AddPosition from "../views/Position/AddPosition";
 import EditPosition from "../views/Position/EditPosition";
 import Personnel from "../views/User/Personnel/Personnel";
 import AddPersonnel from "../views/User/Personnel/AddPersonnel";
+import EditPersonnel from "../views/User/Personnel/EditPersonnel";
 
 function Router() {
   const location = useLocation();
@@ -116,6 +117,10 @@ function Router() {
         {
           path: `${CONST.ROUTE.PERSONNEL}/${CONST.ROUTE.ADD}`,
           element: <AddPersonnel />,
+        },
+        {
+          path: `${CONST.ROUTE.PERSONNEL}/:id/${CONST.ROUTE.EDIT}`,
+          element: <EditPersonnel />,
         },
       ],
     },
