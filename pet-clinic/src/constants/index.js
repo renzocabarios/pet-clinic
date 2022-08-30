@@ -10,6 +10,8 @@ export default {
     LOGIN: "login",
     REGISTER: "register",
     DASHBOARD: "dashboard",
+    POSITION: "position",
+  },
   SLICE: {
     POSITION: "position",
   },
