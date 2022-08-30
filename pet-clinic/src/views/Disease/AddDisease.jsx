@@ -15,7 +15,7 @@ function AddDisease() {
 
   const submit = async () => {
     await api.post(CONST.ROUTE.DISEASE, formdata);
-    navigate(`/${CONST.ROUTE.DISEASE}`);
+    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.DISEASE}`);
   };
 
   const inputs = [
