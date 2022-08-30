@@ -3,6 +3,7 @@ import diseaseReducer from "./reducers/disease.reducer";
 import authReducer from "./reducers/auth.reducer";
 import positionReducer from "./reducers/position.reducer";
 import personnelReducer from "./reducers/personnel.reducer";
+import animalTypeReducer from "./reducers/animal-type.reducer";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     authReducer,
     positionReducer,
     personnelReducer,
+    animalTypeReducer,
   },
 });
