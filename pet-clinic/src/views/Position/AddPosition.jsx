@@ -4,9 +4,13 @@ import CONST from "../../constants/index";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../../components/FormInput";
 import PrimaryForm from "../../components/PrimaryForm";
+import PrimaryButton from "../../components/PrimaryButton";
+import { useDispatch } from "react-redux";
+import { addData } from "../../states/reducers/position.reducer";
 
-function AddDisease() {
+function AddPosition() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [formdata, setformdata] = useState({
     name: "",
@@ -14,8 +18,8 @@ function AddDisease() {
   });
 
   const submit = async () => {
-    await api.post(CONST.ROUTE.DISEASE, formdata);
-    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.DISEASE}`);
+    dispatch(addData({ body: formdata }));
+    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.POSITION}`);
   };
 
   const inputs = [
@@ -43,7 +47,7 @@ function AddDisease() {
 
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <PrimaryForm title="Add Disease">
+      <PrimaryForm title="Add Position">
         {inputs.map((i) => {
           return (
             <FormInput
@@ -54,12 +58,10 @@ function AddDisease() {
             />
           );
         })}
-        <button className="shadow-md p-2" onClick={submit}>
-          Add
-        </button>
+        <PrimaryButton title="Add" onClick={submit} />
       </PrimaryForm>
     </div>
   );
 }
 
-export default AddDisease;
+export default AddPosition;
