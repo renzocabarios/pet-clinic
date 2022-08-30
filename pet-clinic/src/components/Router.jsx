@@ -20,6 +20,7 @@ import AddUser from "../views/User/AddUser";
 import Position from "../views/Position/Position";
 import AddPosition from "../views/Position/AddPosition";
 import EditPosition from "../views/Position/EditPosition";
+import Personnel from "../views/User/Personnel/Personnel";
 
 function Router() {
   const location = useLocation();
@@ -106,6 +107,10 @@ function Router() {
         {
           path: `${CONST.ROUTE.POSITION}/:id/${CONST.ROUTE.EDIT}`,
           element: <EditPosition />,
+        },
+        {
+          path: CONST.ROUTE.PERSONNEL,
+          element: <Personnel />,
         },
       ],
     },
