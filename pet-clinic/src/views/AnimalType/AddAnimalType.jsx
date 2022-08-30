@@ -4,9 +4,13 @@ import CONST from "../../constants/index";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../../components/FormInput";
 import PrimaryForm from "../../components/PrimaryForm";
+import { useDispatch } from "react-redux";
+import { addData } from "../../states/reducers/animal-type.reducer";
+import PrimaryButton from "../../components/PrimaryButton";
 
 function AddAnimalType() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [formdata, setformdata] = useState({
     name: "",
@@ -14,8 +18,8 @@ function AddAnimalType() {
   });
 
   const submit = async () => {
-    await api.post(CONST.ROUTE.ANIMAL_TYPE, formdata);
-    navigate(`/${CONST.ROUTE.ANIMAL_TYPE}`);
+    dispatch(addData({ body: formdata }));
+    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.ANIMAL_TYPE}`);
   };
 
   const inputs = [
@@ -54,9 +58,7 @@ function AddAnimalType() {
             />
           );
         })}
-        <button className="shadow-md p-2" onClick={submit}>
-          Add Animal Type
-        </button>
+        <PrimaryButton title="Add" onClick={submit} />
       </PrimaryForm>
     </div>
   );
