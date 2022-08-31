@@ -17,5 +17,6 @@ export default {
     POSITION: "position",
     PERSONNEL: "personnel",
     ANIMAL_TYPE: "animal-type",
+    ANIMAL: "animal",
   },
 };
