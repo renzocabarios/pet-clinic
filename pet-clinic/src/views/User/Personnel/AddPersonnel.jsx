@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import CONST from "../../../constants/index";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../../../components/FormInput";
-import PrimaryForm from "../../../components/PrimaryForm";
+import Card from "../../../components/Card";
 import PrimaryButton from "../../../components/PrimaryButton";
 import { useDispatch, useSelector } from "react-redux";
 import FromSelect from "../../../components/InputSelect";
@@ -83,33 +83,36 @@ function AddPersonnel() {
 
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <PrimaryForm title="Add Personnel">
-        {inputs.map((i) => {
-          return (
-            <FormInput
-              name={i.name}
-              title={i.title}
-              onChange={i.onChange}
-              key={i.name}
-              type={i.type}
-            />
-          );
-        })}
-        <FromSelect
-          name="position"
-          title="Position"
-          onChange={(e) => {
-            setformdata((prevState) => ({
-              ...prevState,
-              position: e.target.value,
-            }));
-          }}
-          data={data}
-          value="_id"
-          option="name"
-        />
-        <PrimaryButton title="Add" onClick={submit} />
-      </PrimaryForm>
+      <Card>
+        <div className="flex flex-col gap-3 items-center text-white">
+          <h1 className="font-bold text-3xl">Add Personnel</h1>
+          {inputs.map((i) => {
+            return (
+              <FormInput
+                name={i.name}
+                title={i.title}
+                onChange={i.onChange}
+                key={i.name}
+                type={i.type}
+              />
+            );
+          })}
+          <FromSelect
+            name="position"
+            title="Position"
+            onChange={(e) => {
+              setformdata((prevState) => ({
+                ...prevState,
+                position: e.target.value,
+              }));
+            }}
+            data={data}
+            value="_id"
+            option="name"
+          />
+          <PrimaryButton title="Add" onClick={submit} />
+        </div>
+      </Card>
     </div>
   );
 }
