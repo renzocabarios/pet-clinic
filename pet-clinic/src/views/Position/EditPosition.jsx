@@ -3,7 +3,8 @@ import api from "../../services/api.service";
 import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
 import FormInput from "../../components/FormInput";
-import PrimaryForm from "../../components/PrimaryForm";
+import Card from "../../components/Card";
+import PrimaryButton from "../../components/PrimaryButton";
 import { useDispatch } from "react-redux";
 import { updateData } from "../../states/reducers/position.reducer";
 
@@ -62,22 +63,23 @@ function EditPosition() {
 
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <PrimaryForm title="Edit Disease">
-        {inputs.map((i) => {
-          return (
-            <FormInput
-              name={i.name}
-              title={i.title}
-              onChange={i.onChange}
-              defaultValue={i.defaultValue}
-              key={i.name}
-            />
-          );
-        })}
-        <button className="shadow-md p-2" onClick={submit}>
-          Update
-        </button>
-      </PrimaryForm>
+      <Card>
+        <div className="flex flex-col gap-3 items-center text-white">
+          <h1 className="font-bold text-3xl">Edit Position</h1>
+          {inputs.map((i) => {
+            return (
+              <FormInput
+                name={i.name}
+                title={i.title}
+                onChange={i.onChange}
+                defaultValue={i.defaultValue}
+                key={i.name}
+              />
+            );
+          })}
+          <PrimaryButton title="Update" onClick={submit} />
+        </div>
+      </Card>
     </div>
   );
 }
