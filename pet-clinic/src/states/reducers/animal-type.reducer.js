@@ -6,12 +6,15 @@ const initialState = {
   entries: [],
 };
 
-export const fetchData = createAsyncThunk("animalType/fetchData", async () => {
-  return await api.get(CONST.ROUTE.ANIMAL_TYPE).then((res) => res.data);
-});
+export const fetchAnimalType = createAsyncThunk(
+  "animalType/fetchAnimalType",
+  async () => {
+    return await api.get(CONST.ROUTE.ANIMAL_TYPE).then((res) => res.data);
+  }
+);
 
-export const deleteData = createAsyncThunk(
-  "animalType/deleteData",
+export const deleteAnimalType = createAsyncThunk(
+  "animalType/deleteAnimalType",
   async (props) => {
     const { id } = props;
     return await api
@@ -20,8 +23,8 @@ export const deleteData = createAsyncThunk(
   }
 );
 
-export const updateData = createAsyncThunk(
-  "animalType/updateData",
+export const updateAnimalType = createAsyncThunk(
+  "animalType/updateAnimalType",
   async (props) => {
     const { id, body } = props;
     return await api
@@ -30,28 +33,31 @@ export const updateData = createAsyncThunk(
   }
 );
 
-export const addData = createAsyncThunk("animalType/addData", async (props) => {
-  return await api
-    .post(CONST.ROUTE.ANIMAL_TYPE, props.body)
-    .then((res) => res.data);
-});
+export const addAnimalType = createAsyncThunk(
+  "animalType/addAnimalType",
+  async (props) => {
+    return await api
+      .post(CONST.ROUTE.ANIMAL_TYPE, props.body)
+      .then((res) => res.data);
+  }
+);
 
 export const slice = createSlice({
   name: CONST.SLICE.ANIMAL_TYPE,
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchData.fulfilled, (state, action) => {
+    builder.addCase(fetchAnimalType.fulfilled, (state, action) => {
       state.entries = action.payload.data;
     });
 
-    builder.addCase(deleteData.fulfilled, (state, action) => {
+    builder.addCase(deleteAnimalType.fulfilled, (state, action) => {
       state.entries = state.entries.filter((e) => {
         return e._id != action.payload.data._id;
       });
     });
 
-    builder.addCase(addData.fulfilled, (state, action) => {
+    builder.addCase(addAnimalType.fulfilled, (state, action) => {
       state.entries.push(action.payload.data);
     });
   },

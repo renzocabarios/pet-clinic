@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import FormInput from "../../components/FormInput";
 import PrimaryForm from "../../components/PrimaryForm";
 import { useDispatch } from "react-redux";
-import { addData } from "../../states/reducers/animal-type.reducer";
+import { addAnimalType } from "../../states/reducers/animal-type.reducer";
 import PrimaryButton from "../../components/PrimaryButton";
 
 function AddAnimalType() {
@@ -18,7 +18,7 @@ function AddAnimalType() {
   });
 
   const submit = async () => {
-    dispatch(addData({ body: formdata }));
+    dispatch(addAnimalType({ body: formdata }));
     navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.ANIMAL_TYPE}`);
   };
 

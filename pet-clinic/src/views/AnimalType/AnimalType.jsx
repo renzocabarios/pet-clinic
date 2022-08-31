@@ -6,8 +6,8 @@ import CONST from "../../constants/index";
 import PrimaryButton from "../../components/PrimaryButton";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  fetchData,
-  deleteData,
+  fetchAnimalType,
+  deleteAnimalType,
 } from "../../states/reducers/animal-type.reducer";
 
 function AnimalType() {
@@ -19,7 +19,7 @@ function AnimalType() {
   });
 
   const deleteById = async (id) => {
-    dispatch(deleteData({ id }));
+    dispatch(deleteAnimalType({ id }));
   };
 
   const updateById = async (id) => {
@@ -27,7 +27,7 @@ function AnimalType() {
   };
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchAnimalType());
   }, [data]);
 
   return (
