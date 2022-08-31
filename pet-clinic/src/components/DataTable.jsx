@@ -6,10 +6,10 @@ function DataTable({ header, data, dataName, deleteById, updateById }) {
       <table className="rounded-lg w-full text-base border-collapse shadow-md">
         <thead>
           <tr className="rounded-lg text-center bg-sky-700 text-white text-lg">
-            {header.map((i) => {
+            {header.map((val, index) => {
               return (
-                <th className="p-3" key={i}>
-                  {i}
+                <th className="p-3" key={index}>
+                  {val}
                 </th>
               );
             })}
@@ -17,13 +17,13 @@ function DataTable({ header, data, dataName, deleteById, updateById }) {
           </tr>
         </thead>
         <tbody>
-          {data.map((i) => {
+          {data.map((i, index) => {
             return (
               <tr
                 className="text-center border-y-4 border-gray-100"
-                key={i._id}
+                key={index}
               >
-                {dataName.map((name) => {
+                {dataName.map((name, index1) => {
                   let value = name;
                   if (name.includes(".")) {
                     const keys = name.split(".");
@@ -35,7 +35,7 @@ function DataTable({ header, data, dataName, deleteById, updateById }) {
                     value = tempValue;
                   }
                   return (
-                    <td className="p-3" key={name}>
+                    <td className="p-3" key={index1}>
                       {name.includes(".") ? value : i[name]}
                     </td>
                   );
