@@ -1,6 +1,6 @@
-import service from "../services/user.service.js";
+import service from "../../services/user/user.service.js";
 import bcrypt from "bcrypt";
-import ENV from "../../env/index.js";
+import ENV from "../../../env/index.js";
 import jwt from "jsonwebtoken";
 
 const getAll = async (req, res) => {

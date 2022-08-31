@@ -1,12 +1,20 @@
 import { useState, useEffect } from "react";
-import api from "../../services/api.service";
 import { useNavigate } from "react-router-dom";
 import CONST from "../../constants/index";
 import FormInput from "../../components/FormInput";
 import PrimaryForm from "../../components/PrimaryForm";
+import PrimaryButton from "../../components/PrimaryButton";
+import { useSelector, useDispatch } from "react-redux";
+import { addAnimal } from "../../states/reducers/animal.reducer";
+import { fetchAnimalType } from "../../states/reducers/animal-type.reducer";
 
 function AddAnimal() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const data = useSelector((state) => {
+    return state.animalTypeReducer.entries;
+  });
 
   const sexes = ["Male", "Female"];
 
@@ -14,26 +22,17 @@ function AddAnimal() {
     name: "",
     breed: "",
     age: 0,
-    sex: sexes[0],
+    sex: "",
     animalType: "",
   });
 
-  const [animalTypes, setanimalTypes] = useState([]);
-
-  const get = async () => {
-    const {
-      data: { data },
-    } = await api.get(CONST.ROUTE.ANIMAL_TYPE);
-    setanimalTypes(data);
-  };
-
   useEffect(() => {
-    get();
-  }, []);
+    dispatch(fetchAnimalType());
+  }, [data]);
 
   const submit = async () => {
-    await api.post(CONST.ROUTE.ANIMAL, formdata);
-    navigate(`/${CONST.ROUTE.ANIMAL}`);
+    dispatch(addAnimal({ body: formdata }));
+    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.ANIMAL}`);
   };
 
   const inputs = [
@@ -94,7 +93,17 @@ function AddAnimal() {
           <select
             className="rounded border-0 outline-0 shadow-md p-2 w-full bg-sky-500"
             name="sex"
+            defaultValue={"DEFAULT"}
+            onChange={(e) => {
+              setformdata((prevState) => ({
+                ...prevState,
+                sex: e.target.value,
+              }));
+            }}
           >
+            <option disabled value="DEFAULT">
+              Choose Sex
+            </option>
             {sexes.map((e) => {
               return (
                 <option value={e} key={e}>
@@ -110,6 +119,7 @@ function AddAnimal() {
           <select
             className="rounded border-0 outline-0 shadow-md p-2 w-full bg-sky-500"
             name="animalType"
+            defaultValue={"DEFAULT"}
             onChange={(e) => {
               setformdata((prevState) => ({
                 ...prevState,
@@ -117,7 +127,10 @@ function AddAnimal() {
               }));
             }}
           >
-            {animalTypes.map((e) => {
+            <option disabled value="DEFAULT">
+              Choose Animal Type
+            </option>
+            {data.map((e) => {
               return (
                 <option value={e._id} key={e._id}>
                   {e.name}
@@ -126,9 +139,7 @@ function AddAnimal() {
             })}
           </select>
         </div>
-        <button className="shadow-md p-2" onClick={submit}>
-          Add
-        </button>
+        <PrimaryButton title="Add" onClick={submit} />
       </PrimaryForm>
     </div>
   );
