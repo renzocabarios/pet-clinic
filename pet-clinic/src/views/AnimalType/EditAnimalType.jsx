@@ -27,7 +27,7 @@ function EditAnimalType() {
 
   const submit = async () => {
     await api.update(`${CONST.ROUTE.ANIMAL_TYPE}/${params.id}`, formdata);
-    navigate(`/${CONST.ROUTE.ANIMAL_TYPE}`);
+    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.ANIMAL_TYPE}`);
   };
 
   const inputs = [

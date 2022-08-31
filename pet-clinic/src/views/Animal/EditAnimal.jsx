@@ -1,46 +1,36 @@
 import { useEffect, useState } from "react";
-import api from "../../services/api.service";
 import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
 import FormInput from "../../components/FormInput";
 import PrimaryForm from "../../components/PrimaryForm";
+import { useSelector, useDispatch } from "react-redux";
+import { updateAnimal } from "../../states/reducers/animal.reducer";
+import { fetchAnimalType } from "../../states/reducers/animal-type.reducer";
 
 function EditAnimal() {
   const navigate = useNavigate();
   const params = useParams();
+  const dispatch = useDispatch();
+
+  const data = useSelector((state) => {
+    return state.animalTypeReducer.entries;
+  });
 
   const [formdata, setformdata] = useState({
     name: "",
     breed: "",
     age: 0,
-    sex: "Male",
+    sex: "",
     animalType: "",
   });
 
-  const [animalTypes, setanimalTypes] = useState([]);
-
-  const get = async () => {
-    const {
-      data: { data },
-    } = await api.get(`${CONST.ROUTE.ANIMAL}/${params.id}`);
-    setformdata(data[0]);
-    getAnimalTypes();
-  };
-
-  const getAnimalTypes = async () => {
-    const {
-      data: { data },
-    } = await api.get(CONST.ROUTE.ANIMAL_TYPE);
-    setanimalTypes(data);
-  };
-
   useEffect(() => {
-    get();
+    dispatch(fetchAnimalType());
   }, []);
 
   const submit = async () => {
-    await api.update(`${CONST.ROUTE.ANIMAL}/${params.id}`, formdata);
-    navigate(`/${CONST.ROUTE.ANIMAL}`);
+    dispatch(updateAnimal({ id: params.id, body: formdata }));
+    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.ANIMAL}`);
   };
 
   const inputs = [
@@ -80,6 +70,7 @@ function EditAnimal() {
               title={i.title}
               onChange={i.onChange}
               defaultValue={i.defaultValue}
+              value={i.value}
               key={i.name}
             />
           );
@@ -105,6 +96,7 @@ function EditAnimal() {
           <select
             className="rounded border-0 outline-0 shadow-md p-2 w-full bg-sky-500 text-white"
             name="sex"
+            defaultValue={"DEFAULT"}
             onChange={(e) => {
               setformdata((prevState) => ({
                 ...prevState,
@@ -112,6 +104,9 @@ function EditAnimal() {
               }));
             }}
           >
+            <option disabled value="DEFAULT">
+              Choose Sex
+            </option>
             {sexes.map((e) => {
               return (
                 <option value={e} key={e}>
@@ -127,7 +122,7 @@ function EditAnimal() {
           <select
             className="rounded border-0 outline-0 shadow-md p-2 w-full bg-sky-500 text-white"
             name="animalType"
-            value={animalTypes[0]}
+            defaultValue="DEFAULT"
             onChange={(e) => {
               setformdata((prevState) => ({
                 ...prevState,
@@ -135,7 +130,10 @@ function EditAnimal() {
               }));
             }}
           >
-            {animalTypes.map((e) => {
+            <option disabled value="DEFAULT">
+              Choose Animal Type
+            </option>
+            {data.map((e) => {
               return (
                 <option value={e._id} key={e._id}>
                   {e.name}
