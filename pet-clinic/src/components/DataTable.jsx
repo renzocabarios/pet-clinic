@@ -5,7 +5,7 @@ function DataTable({ header, data, dataName, deleteById, updateById }) {
     <div className="">
       <table className="rounded-lg w-full text-base border-collapse shadow-md">
         <thead>
-          <tr className="rounded-lg text-center bg-sky-700 text-white text-lg">
+          <tr className="rounded-lg text-center bg-gray-900 text-white text-lg">
             {header.map((val, index) => {
               return (
                 <th className="p-3" key={index}>
@@ -20,7 +20,7 @@ function DataTable({ header, data, dataName, deleteById, updateById }) {
           {data.map((i, index) => {
             return (
               <tr
-                className="text-center border-y-4 border-gray-100"
+                className="text-center border-y-2 border-gray-600 bg-gray-800  hover:bg-gray-700 transition-all"
                 key={index}
               >
                 {dataName.map((name, index1) => {
@@ -35,12 +35,12 @@ function DataTable({ header, data, dataName, deleteById, updateById }) {
                     value = tempValue;
                   }
                   return (
-                    <td className="p-3" key={index1}>
+                    <td className="p-3  text-white" key={index1}>
                       {name.includes(".") ? value : i[name]}
                     </td>
                   );
                 })}
-                <td className="p-3">
+                <td className="p-3   text-white">
                   <PrimaryButton
                     title={"Edit"}
                     onClick={() => {

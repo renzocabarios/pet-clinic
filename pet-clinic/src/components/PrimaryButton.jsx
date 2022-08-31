@@ -3,7 +3,7 @@ function PrimaryButton({ title, onClick }) {
     <>
       <button
         onClick={onClick}
-        className="shadow-md rounded-md px-5 py-1 bg-sky-800 text-white font-bold text-lg"
+        className="shadow-md rounded-md px-7 py-3 bg-gray-900 hover:bg-black transition-all text-white font-bold text-lg"
       >
         {title}
       </button>
