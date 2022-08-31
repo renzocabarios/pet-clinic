@@ -63,7 +63,7 @@ function RegisterUser() {
   ];
 
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="h-screen flex justify-center items-center bg-gray-600">
       <div className="shadow-md p-10 flex flex-col items-center">
         <h1>Create User</h1>
         {inputs.map((i) => {

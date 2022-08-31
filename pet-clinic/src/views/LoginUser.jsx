@@ -56,7 +56,7 @@ function LoginUser() {
   ];
 
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="h-screen flex justify-center items-center bg-gray-600">
       <Card>
         <div className="flex flex-col gap-3 items-center text-white">
           <h1 className="font-bold text-3xl">Login</h1>
