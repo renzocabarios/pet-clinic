@@ -4,6 +4,7 @@ import CONST from "../../constants/index";
 import FormInput from "../../components/FormInput";
 import Card from "../../components/Card";
 import PrimaryButton from "../../components/PrimaryButton";
+import InputSelect from "../../components/InputSelect";
 import { useSelector, useDispatch } from "react-redux";
 import { addAnimal } from "../../states/reducers/animal.reducer";
 import { fetchAnimalType } from "../../states/reducers/animal-type.reducer";
@@ -16,7 +17,7 @@ function AddAnimal() {
     return state.animalTypeReducer.entries;
   });
 
-  const sexes = ["Male", "Female"];
+  const sexes = [{ sex: "Male" }, { sex: "Female" }];
 
   const [formdata, setformdata] = useState({
     name: "",
@@ -74,73 +75,46 @@ function AddAnimal() {
             );
           })}
 
-          <div className="flex flex-col" key="age">
-            <label htmlFor="age">Age</label>
-            <input
-              className="rounded border-0 outline-0 shadow-md p-2 bg-sky-500"
-              type="text"
-              name="age"
-              value={formdata.age}
-              onChange={(e) => {
-                setformdata((prevState) => ({
-                  ...prevState,
-                  age: e.target.value.replace(/\D/g, ""),
-                }));
-              }}
-            />
-          </div>
+          <FormInput
+            name="age"
+            title="Age"
+            value={formdata.age}
+            onChange={(e) => {
+              setformdata((prevState) => ({
+                ...prevState,
+                age: e.target.value.replace(/\D/g, ""),
+              }));
+            }}
+          />
 
-          <div className="flex flex-col w-full">
-            <label htmlFor="sex">Sex</label>
-            <select
-              className="rounded border-0 outline-0 shadow-md p-2 w-full bg-sky-500"
-              name="sex"
-              defaultValue={"DEFAULT"}
-              onChange={(e) => {
-                setformdata((prevState) => ({
-                  ...prevState,
-                  sex: e.target.value,
-                }));
-              }}
-            >
-              <option disabled value="DEFAULT">
-                Choose Sex
-              </option>
-              {sexes.map((e) => {
-                return (
-                  <option value={e} key={e}>
-                    {e}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
+          <InputSelect
+            name="sex"
+            title="Sex"
+            onChange={(e) => {
+              setformdata((prevState) => ({
+                ...prevState,
+                sex: e.target.value,
+              }));
+            }}
+            data={sexes}
+            value="sex"
+            option="sex"
+          />
 
-          <div className="flex flex-col w-full">
-            <label htmlFor="animalType">Animal Type</label>
-            <select
-              className="rounded border-0 outline-0 shadow-md p-2 w-full bg-sky-500"
-              name="animalType"
-              defaultValue={"DEFAULT"}
-              onChange={(e) => {
-                setformdata((prevState) => ({
-                  ...prevState,
-                  animalType: e.target.value,
-                }));
-              }}
-            >
-              <option disabled value="DEFAULT">
-                Choose Animal Type
-              </option>
-              {data.map((e) => {
-                return (
-                  <option value={e._id} key={e._id}>
-                    {e.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
+          <InputSelect
+            name="animalType"
+            title="Animal Type"
+            onChange={(e) => {
+              setformdata((prevState) => ({
+                ...prevState,
+                animalType: e.target.value,
+              }));
+            }}
+            data={data}
+            value="_id"
+            option="name"
+          />
+
           <PrimaryButton title="Add" onClick={submit} />
         </div>
       </Card>
