@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import FormInput from "../components/FormInput";
 import PrimaryButton from "../components/PrimaryButton";
-import PrimaryForm from "../components/PrimaryForm";
 import Card from "../components/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { authUser } from "../states/reducers/auth.reducer";
@@ -56,7 +55,7 @@ function LoginUser() {
   ];
 
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="h-screen flex justify-center items-center bg-gray-600">
       <Card>
         <div className="flex flex-col gap-3 items-center text-white">
           <h1 className="font-bold text-3xl">Login</h1>

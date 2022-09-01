@@ -1,6 +1,6 @@
 import PrimaryButton from "./PrimaryButton";
 
-function DataTable({ header, data, dataName, deleteById, updateById }) {
+function DataTable({ header, data, dataName, actions }) {
   return (
     <div className="">
       <table className="rounded-lg w-full text-base border-collapse shadow-md">
@@ -40,19 +40,18 @@ function DataTable({ header, data, dataName, deleteById, updateById }) {
                     </td>
                   );
                 })}
-                <td className="p-3   text-white">
-                  <PrimaryButton
-                    title={"Edit"}
-                    onClick={() => {
-                      updateById(i._id);
-                    }}
-                  />
-                  <PrimaryButton
-                    title={"Delete"}
-                    onClick={() => {
-                      deleteById(i._id);
-                    }}
-                  />
+                <td className="p-3 text-white">
+                  {actions.map((action, btnIndex) => {
+                    return (
+                      <PrimaryButton
+                        key={btnIndex}
+                        title={action.title}
+                        onClick={() => {
+                          action.onClick(i._id);
+                        }}
+                      />
+                    );
+                  })}
                 </td>
               </tr>
             );
