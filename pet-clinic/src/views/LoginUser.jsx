@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import FormInput from "../components/FormInput";
 import PrimaryButton from "../components/PrimaryButton";
-import PrimaryForm from "../components/PrimaryForm";
 import Card from "../components/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { authUser } from "../states/reducers/auth.reducer";
