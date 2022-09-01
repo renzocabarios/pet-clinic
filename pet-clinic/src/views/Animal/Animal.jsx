@@ -25,14 +25,16 @@ function Animal() {
     navigate(`${id}/${CONST.ROUTE.EDIT}`);
   };
 
-  useEffect(() => {
-    dispatch(fetchAnimal());
-  }, [data]);
-
   const actions = [
     { title: "Edit", onClick: updateById },
     { title: "Delete", onClick: deleteById },
   ];
+
+  const { header, dataName } = CONST.DATATABLE.ANIMAL;
+
+  useEffect(() => {
+    dispatch(fetchAnimal());
+  }, [data]);
 
   return (
     <>
@@ -43,9 +45,9 @@ function Animal() {
         }}
       />
       <DataTable
-        header={["Name", "Breed", "Age", "Sex"]}
+        header={header}
         data={data}
-        dataName={["name", "breed", "age", "sex"]}
+        dataName={dataName}
         actions={actions}
       />
     </>

@@ -15,30 +15,17 @@ function Personnel() {
     return state.personnelReducer.entries;
   });
 
-  const deleteById = async (id) => {
-    await api.deleteById(`${CONST.ROUTE.PERSONNEL}/${id}`);
-    get();
-  };
-
   const updateById = async (id) => {
     navigate(`${id}/${CONST.ROUTE.EDIT}`);
   };
 
-  const get = async () => {
-    const {
-      data: { data },
-    } = await api.get(CONST.ROUTE.PERSONNEL);
-    setdata(data);
-  };
+  const actions = [{ title: "Edit", onClick: updateById }];
+
+  const { header, dataName } = CONST.DATATABLE.PERSONNEL;
 
   useEffect(() => {
     dispatch(fetchData());
   }, []);
-
-  const actions = [
-    { title: "Edit", onClick: updateById },
-    { title: "Delete", onClick: deleteById },
-  ];
 
   return (
     <>
@@ -49,9 +36,9 @@ function Personnel() {
         }}
       />
       <DataTable
-        header={["First Name", "Last Name", "Email", "Position"]}
+        header={header}
         data={data}
-        dataName={["firstName", "lastName", "email", "position.name"]}
+        dataName={dataName}
         actions={actions}
       />
     </>

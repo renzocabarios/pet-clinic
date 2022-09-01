@@ -23,14 +23,16 @@ function Position() {
     navigate(`${id}/${CONST.ROUTE.EDIT}`);
   };
 
-  useEffect(() => {
-    dispatch(fetchData());
-  }, [data]);
-
   const actions = [
     { title: "Edit", onClick: updateById },
     { title: "Delete", onClick: deleteById },
   ];
+
+  const { header, dataName } = CONST.DATATABLE.POSITION;
+
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [data]);
 
   return (
     <>
@@ -41,9 +43,9 @@ function Position() {
         }}
       />
       <DataTable
-        header={["Position Name", "Description"]}
+        header={header}
         data={data}
-        dataName={["name", "description"]}
+        dataName={dataName}
         actions={actions}
       />
     </>

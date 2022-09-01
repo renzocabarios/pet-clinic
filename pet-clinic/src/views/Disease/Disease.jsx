@@ -23,14 +23,16 @@ function Disease() {
     navigate(`${id}/${CONST.ROUTE.EDIT}`);
   };
 
-  useEffect(() => {
-    dispatch(fetchData());
-  }, []);
-
   const actions = [
     { title: "Edit", onClick: updateById },
     { title: "Delete", onClick: deleteById },
   ];
+
+  const { header, dataName } = CONST.DATATABLE.DISEASE;
+
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
 
   return (
     <>
@@ -41,9 +43,9 @@ function Disease() {
         }}
       />
       <DataTable
-        header={["Name", "Description"]}
+        header={header}
         data={data}
-        dataName={["name", "description"]}
+        dataName={dataName}
         actions={actions}
       />
     </>
