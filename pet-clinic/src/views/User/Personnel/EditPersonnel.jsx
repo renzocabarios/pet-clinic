@@ -1,8 +1,9 @@
 import { useState } from "react";
 import CONST from "../../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
-import PrimaryForm from "../../../components/PrimaryForm";
+import Card from "../../../components/Card";
 import InputSelect from "../../../components/InputSelect";
+import PrimaryButton from "../../../components/PrimaryButton";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../../states/reducers/personnel.reducer";
 
@@ -26,24 +27,25 @@ function EditPersonnel() {
 
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <PrimaryForm title="Edit Personnel">
-        <InputSelect
-          name="position"
-          title="Position"
-          onChange={(e) => {
-            setformdata((prevState) => ({
-              ...prevState,
-              position: e.target.value,
-            }));
-          }}
-          data={data}
-          value="_id"
-          option="name"
-        />
-        <button className="shadow-md p-2" onClick={submit}>
-          Update
-        </button>
-      </PrimaryForm>
+      <Card>
+        <div className="flex flex-col gap-3 items-center text-white">
+          <h1 className="font-bold text-3xl">Edit Personnel</h1>
+          <InputSelect
+            name="position"
+            title="Position"
+            onChange={(e) => {
+              setformdata((prevState) => ({
+                ...prevState,
+                position: e.target.value,
+              }));
+            }}
+            data={data}
+            value="_id"
+            option="name"
+          />
+          <PrimaryButton title="Update" onClick={submit} />
+        </div>
+      </Card>
     </div>
   );
 }

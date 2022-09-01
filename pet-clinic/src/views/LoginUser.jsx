@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import FormInput from "../components/FormInput";
 import PrimaryButton from "../components/PrimaryButton";
-import PrimaryForm from "../components/PrimaryForm";
+import Card from "../components/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { authUser } from "../states/reducers/auth.reducer";
 import { useNavigate } from "react-router-dom";
@@ -16,8 +16,8 @@ function LoginUser() {
   });
 
   const [formdata, setformdata] = useState({
-    email: "",
-    password: "",
+    email: "renzo.cabarios@gmail.com",
+    password: "User123!",
   });
 
   useEffect(() => {
@@ -32,6 +32,7 @@ function LoginUser() {
     {
       name: "email",
       title: "Email",
+      defaultValue: formdata.email,
       onChange: (e) => {
         setformdata((prevState) => ({
           ...prevState,
@@ -43,6 +44,7 @@ function LoginUser() {
       name: "password",
       title: "Password",
       type: "password",
+      defaultValue: formdata.password,
       onChange: (e) => {
         setformdata((prevState) => ({
           ...prevState,
@@ -53,27 +55,30 @@ function LoginUser() {
   ];
 
   return (
-    <div className="h-screen flex justify-center items-center">
-      <PrimaryForm>
-        <h1>Login</h1>
-        {inputs.map((i) => {
-          return (
-            <FormInput
-              name={i.name}
-              title={i.title}
-              onChange={i.onChange}
-              key={i.name}
-              type={i.type}
-            />
-          );
-        })}
-        <PrimaryButton
-          title={"Login"}
-          onClick={() => {
-            submit();
-          }}
-        />
-      </PrimaryForm>
+    <div className="h-screen flex justify-center items-center bg-gray-600">
+      <Card>
+        <div className="flex flex-col gap-3 items-center text-white">
+          <h1 className="font-bold text-3xl">Login</h1>
+          {inputs.map((i) => {
+            return (
+              <FormInput
+                name={i.name}
+                title={i.title}
+                onChange={i.onChange}
+                defaultValue={i.defaultValue}
+                key={i.name}
+                type={i.type}
+              />
+            );
+          })}
+          <PrimaryButton
+            title={"Login"}
+            onClick={() => {
+              submit();
+            }}
+          />
+        </div>
+      </Card>
     </div>
   );
 }

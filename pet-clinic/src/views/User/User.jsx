@@ -19,6 +19,13 @@ function User() {
     navigate(`${id}/${CONST.ROUTE.EDIT}`);
   };
 
+  const actions = [
+    { title: "Edit", onClick: updateById },
+    { title: "Delete", onClick: deleteById },
+  ];
+
+  const { header, dataName } = CONST.DATATABLE.USER;
+
   const get = async () => {
     const {
       data: { data },
@@ -40,11 +47,10 @@ function User() {
       />
 
       <DataTable
-        header={["First Name", "Last Name", "Email"]}
+        header={header}
         data={data}
-        dataName={["firstName", "lastName", "email"]}
-        deleteById={deleteById}
-        updateById={updateById}
+        dataName={dataName}
+        actions={actions}
       />
     </>
   );

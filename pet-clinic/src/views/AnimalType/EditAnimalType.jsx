@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import api from "../../services/api.service";
 import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
-import PrimaryForm from "../../components/PrimaryForm";
+import PrimaryButton from "../../components/PrimaryButton";
+import Card from "../../components/Card";
 import FormInput from "../../components/FormInput";
 
 function EditAnimalType() {
@@ -57,22 +58,24 @@ function EditAnimalType() {
 
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <PrimaryForm title="Edit Animal Type">
-        {inputs.map((i) => {
-          return (
-            <FormInput
-              name={i.name}
-              title={i.title}
-              onChange={i.onChange}
-              defaultValue={i.defaultValue}
-              key={i.name}
-            />
-          );
-        })}
-        <button className="shadow-md p-2" onClick={submit}>
-          Update
-        </button>
-      </PrimaryForm>
+      <Card>
+        <div className="flex flex-col gap-3 items-center text-white">
+          <h1 className="font-bold text-3xl">Edit Animal Type</h1>
+          {inputs.map((i) => {
+            return (
+              <FormInput
+                name={i.name}
+                title={i.title}
+                onChange={i.onChange}
+                defaultValue={i.defaultValue}
+                key={i.name}
+              />
+            );
+          })}
+
+          <PrimaryButton title="Update" onClick={submit} />
+        </div>
+      </Card>
     </div>
   );
 }
