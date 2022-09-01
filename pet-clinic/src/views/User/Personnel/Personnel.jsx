@@ -35,6 +35,11 @@ function Personnel() {
     dispatch(fetchData());
   }, []);
 
+  const actions = [
+    { title: "Edit", onClick: updateById },
+    { title: "Delete", onClick: deleteById },
+  ];
+
   return (
     <>
       <PrimaryButton
@@ -47,8 +52,7 @@ function Personnel() {
         header={["First Name", "Last Name", "Email", "Position"]}
         data={data}
         dataName={["firstName", "lastName", "email", "position.name"]}
-        deleteById={deleteById}
-        updateById={updateById}
+        actions={actions}
       />
     </>
   );

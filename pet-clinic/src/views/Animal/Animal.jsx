@@ -29,6 +29,11 @@ function Animal() {
     dispatch(fetchAnimal());
   }, [data]);
 
+  const actions = [
+    { title: "Edit", onClick: updateById },
+    { title: "Delete", onClick: deleteById },
+  ];
+
   return (
     <>
       <PrimaryButton
@@ -41,8 +46,7 @@ function Animal() {
         header={["Name", "Breed", "Age", "Sex"]}
         data={data}
         dataName={["name", "breed", "age", "sex"]}
-        deleteById={deleteById}
-        updateById={updateById}
+        actions={actions}
       />
     </>
   );

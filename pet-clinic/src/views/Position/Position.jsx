@@ -27,6 +27,11 @@ function Position() {
     dispatch(fetchData());
   }, [data]);
 
+  const actions = [
+    { title: "Edit", onClick: updateById },
+    { title: "Delete", onClick: deleteById },
+  ];
+
   return (
     <>
       <PrimaryButton
@@ -39,8 +44,7 @@ function Position() {
         header={["Position Name", "Description"]}
         data={data}
         dataName={["name", "description"]}
-        deleteById={deleteById}
-        updateById={updateById}
+        actions={actions}
       />
     </>
   );

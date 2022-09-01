@@ -30,6 +30,11 @@ function AnimalType() {
     dispatch(fetchAnimalType());
   }, [data]);
 
+  const actions = [
+    { title: "Edit", onClick: updateById },
+    { title: "Delete", onClick: deleteById },
+  ];
+
   return (
     <>
       <PrimaryButton
@@ -42,8 +47,7 @@ function AnimalType() {
         header={["Name", "Description"]}
         data={data}
         dataName={["name", "description"]}
-        deleteById={deleteById}
-        updateById={updateById}
+        actions={actions}
       />
     </>
   );

@@ -30,6 +30,11 @@ function User() {
     get();
   }, []);
 
+  const actions = [
+    { title: "Edit", onClick: updateById },
+    { title: "Delete", onClick: deleteById },
+  ];
+
   return (
     <>
       <PrimaryButton
@@ -43,8 +48,7 @@ function User() {
         header={["First Name", "Last Name", "Email"]}
         data={data}
         dataName={["firstName", "lastName", "email"]}
-        deleteById={deleteById}
-        updateById={updateById}
+        actions={actions}
       />
     </>
   );

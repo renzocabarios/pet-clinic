@@ -27,6 +27,11 @@ function Disease() {
     dispatch(fetchData());
   }, []);
 
+  const actions = [
+    { title: "Edit", onClick: updateById },
+    { title: "Delete", onClick: deleteById },
+  ];
+
   return (
     <>
       <PrimaryButton
@@ -39,8 +44,7 @@ function Disease() {
         header={["Name", "Description"]}
         data={data}
         dataName={["name", "description"]}
-        deleteById={deleteById}
-        updateById={updateById}
+        actions={actions}
       />
     </>
   );
