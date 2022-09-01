@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import DataTable from "../../../components/DataTable";
-import api from "../../../services/api.service";
 import { useNavigate } from "react-router-dom";
 import CONST from "../../../constants/index";
 import PrimaryButton from "../../../components/PrimaryButton";

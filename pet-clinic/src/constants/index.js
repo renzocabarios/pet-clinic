@@ -21,8 +21,8 @@ export default {
   },
   DATATABLE: {
     PERSONNEL: {
-      header: ["First Name", "Last Name", "Email", "Position"],
-      dataName: ["firstName", "lastName", "email", "position.name"],
+      header: ["First Name", "Last Name", "Email"],
+      dataName: ["firstName", "lastName", "email"],
     },
     USER: {
       header: ["First Name", "Last Name", "Email"],
