@@ -11,6 +11,7 @@ function Sidenav() {
     { name: "Animal", route: `${CONST.ROUTE.ANIMAL}` },
     { name: "Disease", route: `${CONST.ROUTE.DISEASE}` },
     { name: "Position", route: `${CONST.ROUTE.POSITION}` },
+    { name: "Setting", route: `${CONST.ROUTE.SETTING}` },
   ];
 
   return (
