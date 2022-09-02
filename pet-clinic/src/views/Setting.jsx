@@ -1,4 +1,5 @@
 import { PrimaryButton } from "../components";
+import { date } from "../services";
 import { useSelector } from "react-redux";
 
 function Setting() {
@@ -25,15 +26,13 @@ function Setting() {
           <div className="">
             <h1 className="text-4xl font-black">Date Created</h1>
             <h1 className="text-2xl font-light">
-              {data.DateCreated.getMonth()}/{data.DateCreated.getDay()}/
-              {data.DateCreated.getFullYear()}
+              {date.getStringDate(data.DateCreated)}
             </h1>
           </div>
           <div className="">
             <h1 className="text-4xl font-black">Date Updated</h1>
             <h1 className="text-2xl font-light">
-              {data.DateUpdated.getMonth()}/{data.DateUpdated.getDay()}/
-              {data.DateUpdated.getFullYear()}
+              {date.getStringDate(data.DateUpdated)}
             </h1>
           </div>
         </div>
