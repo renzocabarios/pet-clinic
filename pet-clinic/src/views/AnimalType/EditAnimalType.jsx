@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../../services/api.service";
 import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
-import PrimaryButton from "../../components/PrimaryButton";
-import Card from "../../components/Card";
-import FormInput from "../../components/FormInput";
+import { PrimaryButton, Card, FormInput } from "../../components";
 
 function EditAnimalType() {
   const navigate = useNavigate();

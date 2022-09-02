@@ -2,10 +2,7 @@ import { useState } from "react";
 import api from "../../services/api.service";
 import CONST from "../../constants/index";
 import { useNavigate } from "react-router-dom";
-import FormInput from "../../components/FormInput";
-import PrimaryForm from "../../components/PrimaryForm";
-import PrimaryButton from "../../components/PrimaryButton";
-import Card from "../../components/Card";
+import { PrimaryButton, Card, FormInput } from "../../components";
 
 function AddUser() {
   const navigate = useNavigate();
@@ -47,7 +44,7 @@ function AddUser() {
     <div className="h-full w-full flex justify-center items-center">
       <Card>
         <div className="flex flex-col gap-3 items-center text-white">
-          <h1 className="font-bold text-3xl">Add Disease</h1>
+          <h1 className="font-bold text-3xl">Add User</h1>
           {inputs.map((i) => {
             return (
               <FormInput
