@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import FormInput from "../components/FormInput";
-import PrimaryButton from "../components/PrimaryButton";
-import Card from "../components/Card";
+import { FormInput, PrimaryButton, Card } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { authUser } from "../states/reducers/auth.reducer";
 import { useNavigate } from "react-router-dom";

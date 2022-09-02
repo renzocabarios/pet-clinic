@@ -1,11 +1,9 @@
 import { useState } from "react";
 import CONST from "../../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
-import Card from "../../../components/Card";
-import InputSelect from "../../../components/InputSelect";
-import PrimaryButton from "../../../components/PrimaryButton";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../../states/reducers/personnel.reducer";
+import { PrimaryButton, InputSelect, Card } from "../../../components";
 
 function EditPersonnel() {
   const dispatch = useDispatch();

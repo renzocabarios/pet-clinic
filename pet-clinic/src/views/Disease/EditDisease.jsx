@@ -2,11 +2,9 @@ import { useEffect, useState } from "react";
 import api from "../../services/api.service";
 import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
-import FormInput from "../../components/FormInput";
-import PrimaryButton from "../../components/PrimaryButton";
-import Card from "../../components/Card";
 import { useDispatch } from "react-redux";
 import { updateData } from "../../states/reducers/disease.reducer";
+import { PrimaryButton, Card, FormInput } from "../../components";
 
 function EditDisease() {
   const dispatch = useDispatch();

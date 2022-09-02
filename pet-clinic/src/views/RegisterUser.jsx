@@ -2,9 +2,7 @@ import { useState } from "react";
 import api from "../services/api.service";
 import CONST from "../constants/index";
 import { useNavigate } from "react-router-dom";
-import FormInput from "../components/FormInput";
-import PrimaryButton from "../components/PrimaryButton";
-import Card from "../components/Card";
+import { FormInput, PrimaryButton, Card } from "../components";
 
 function RegisterUser() {
   const navigate = useNavigate();
