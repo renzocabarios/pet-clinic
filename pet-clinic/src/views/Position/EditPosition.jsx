@@ -2,11 +2,9 @@ import { useEffect, useState } from "react";
 import api from "../../services/api.service";
 import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
-import FormInput from "../../components/FormInput";
-import Card from "../../components/Card";
-import PrimaryButton from "../../components/PrimaryButton";
 import { useDispatch } from "react-redux";
 import { updateData } from "../../states/reducers/position.reducer";
+import { PrimaryButton, FormInput, Card } from "../../components";
 
 function EditPosition() {
   const dispatch = useDispatch();
