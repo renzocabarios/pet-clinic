@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import CONST from "../../../constants/index";
 import { useNavigate } from "react-router-dom";
-import FormInput from "../../../components/FormInput";
-import Card from "../../../components/Card";
-import PrimaryButton from "../../../components/PrimaryButton";
 import { useDispatch, useSelector } from "react-redux";
-import FromSelect from "../../../components/InputSelect";
 import { addData } from "../../../states/reducers/personnel.reducer";
+import {
+  PrimaryButton,
+  InputSelect,
+  Card,
+  FormInput,
+} from "../../../components";
 
 function AddPersonnel() {
   const navigate = useNavigate();
@@ -97,7 +99,7 @@ function AddPersonnel() {
               />
             );
           })}
-          <FromSelect
+          <InputSelect
             name="position"
             title="Position"
             onChange={(e) => {
