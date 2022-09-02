@@ -12,6 +12,7 @@ export default {
     REGISTER: "register",
     DASHBOARD: "dashboard",
     POSITION: "position",
+    SETTING: "setting",
   },
   SLICE: {
     POSITION: "position",
