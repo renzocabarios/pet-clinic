@@ -1,11 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
-import DataTable from "../../components/DataTable";
 import { useNavigate } from "react-router-dom";
 import CONST from "../../constants/index";
-import PrimaryButton from "../../components/PrimaryButton";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchData, deleteData } from "../../states/reducers/position.reducer";
+import { PrimaryButton, DataTable } from "../../components";
 
 function Position() {
   const dispatch = useDispatch();
