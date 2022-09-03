@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CONST from "../../../constants/index";
+import { ROUTE } from "../../../constants";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../../states/reducers/personnel.reducer";
@@ -20,7 +20,7 @@ function EditPersonnel() {
 
   const submit = async () => {
     dispatch(updateData({ id: params.id, body: formdata }));
-    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.PERSONNEL}`);
+    navigate(`/${ROUTE.DASHBOARD}/${ROUTE.PERSONNEL}`);
   };
 
   return (

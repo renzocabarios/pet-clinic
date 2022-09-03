@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import api from "../../services/api.service";
-import CONST from "../../constants/index";
+import { api } from "../../services";
+import { ROUTE, SLICE } from "../../constants";
 
 const initialState = {
   entries: [],
@@ -8,7 +8,7 @@ const initialState = {
 
 export const fetchData = createAsyncThunk("personnel/fetchData", async () => {
   return await api
-    .get(`${CONST.ROUTE.PERSONNEL}?populate=position`)
+    .get(`${ROUTE.PERSONNEL}?populate=position`)
     .then((res) => res.data);
 });
 
@@ -17,19 +17,17 @@ export const updateData = createAsyncThunk(
   async (props) => {
     const { id, body } = props;
     return await api
-      .update(`${CONST.ROUTE.PERSONNEL}/${id}`, body)
+      .update(`${ROUTE.PERSONNEL}/${id}`, body)
       .then((res) => res.data);
   }
 );
 
 export const addData = createAsyncThunk("personnel/addData", async (props) => {
-  return await api
-    .post(CONST.ROUTE.PERSONNEL, props.body)
-    .then((res) => res.data);
+  return await api.post(ROUTE.PERSONNEL, props.body).then((res) => res.data);
 });
 
 export const slice = createSlice({
-  name: CONST.SLICE.PERSONNEL,
+  name: SLICE.PERSONNEL,
   initialState,
   reducers: {},
   extraReducers: (builder) => {

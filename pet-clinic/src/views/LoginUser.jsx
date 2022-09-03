@@ -3,7 +3,7 @@ import { FormInput, PrimaryButton, Card } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { authUser } from "../states/reducers/auth.reducer";
 import { useNavigate } from "react-router-dom";
-import CONST from "../constants/index";
+import { ROUTE } from "../constants";
 
 function LoginUser() {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ function LoginUser() {
   });
 
   useEffect(() => {
-    if (data) navigate(`/${CONST.ROUTE.DASHBOARD}`);
+    if (data) navigate(`/${ROUTE.DASHBOARD}`);
   }, [data]);
 
   const submit = async () => {

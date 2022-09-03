@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api.service";
-import CONST from "../../constants/index";
+import { ROUTE } from "../../constants";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateData } from "../../states/reducers/position.reducer";
@@ -20,7 +20,7 @@ function EditPosition() {
   const get = async () => {
     const {
       data: { data },
-    } = await api.get(`${CONST.ROUTE.POSITION}/${params.id}`);
+    } = await api.get(`${ROUTE.POSITION}/${params.id}`);
 
     setformdata(data[0]);
   };
@@ -31,7 +31,7 @@ function EditPosition() {
 
   const submit = async () => {
     dispatch(updateData({ id: params.id, body: formdata }));
-    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.POSITION}`);
+    navigate(`/${ROUTE.DASHBOARD}/${ROUTE.POSITION}`);
   };
 
   const inputs = [
