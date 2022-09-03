@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import CONST from "../../constants/index";
+import { ROUTE, DATATABLE } from "../../constants";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchData, deleteData } from "../../states/reducers/position.reducer";
 import { PrimaryButton, DataTable } from "../../components";
@@ -19,7 +19,7 @@ function Position() {
   };
 
   const updateById = async (id) => {
-    navigate(`${id}/${CONST.ROUTE.EDIT}`);
+    navigate(`${id}/${ROUTE.EDIT}`);
   };
 
   const actions = [
@@ -27,7 +27,7 @@ function Position() {
     { title: "Delete", onClick: deleteById },
   ];
 
-  const { header, dataName } = CONST.DATATABLE.POSITION;
+  const { header, dataName } = DATATABLE.POSITION;
 
   useEffect(() => {
     dispatch(fetchData());
@@ -38,7 +38,7 @@ function Position() {
       <PrimaryButton
         title={"Add"}
         onClick={() => {
-          navigate(CONST.ROUTE.ADD);
+          navigate(ROUTE.ADD);
         }}
       />
       <DataTable

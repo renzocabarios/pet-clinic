@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import api from "../../services/api.service";
-import CONST from "../../constants/index";
+import { api } from "../../services";
+import { ROUTE, SLICE } from "../../constants";
 
 const initialState = {
   entries: [],
 };
 
 export const fetchData = createAsyncThunk("position/fetchData", async () => {
-  return await api.get(CONST.ROUTE.POSITION).then((res) => res.data);
+  return await api.get(ROUTE.POSITION).then((res) => res.data);
 });
 
 export const deleteData = createAsyncThunk(
@@ -15,7 +15,7 @@ export const deleteData = createAsyncThunk(
   async (props) => {
     const { id } = props;
     return await api
-      .deleteById(`${CONST.ROUTE.POSITION}/${id}`)
+      .deleteById(`${ROUTE.POSITION}/${id}`)
       .then((res) => res.data);
   }
 );
@@ -25,19 +25,17 @@ export const updateData = createAsyncThunk(
   async (props) => {
     const { id, body } = props;
     return await api
-      .update(`${CONST.ROUTE.POSITION}/${id}`, body)
+      .update(`${ROUTE.POSITION}/${id}`, body)
       .then((res) => res.data);
   }
 );
 
 export const addData = createAsyncThunk("position/addData", async (props) => {
-  return await api
-    .post(CONST.ROUTE.POSITION, props.body)
-    .then((res) => res.data);
+  return await api.post(ROUTE.POSITION, props.body).then((res) => res.data);
 });
 
 export const slice = createSlice({
-  name: CONST.SLICE.POSITION,
+  name: SLICE.POSITION,
   initialState,
   reducers: {},
   extraReducers: (builder) => {

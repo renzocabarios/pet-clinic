@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CONST from "../../constants/index";
+import { ROUTE } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addData } from "../../states/reducers/position.reducer";
@@ -16,7 +16,7 @@ function AddPosition() {
 
   const submit = async () => {
     dispatch(addData({ body: formdata }));
-    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.POSITION}`);
+    navigate(`/${ROUTE.DASHBOARD}/${ROUTE.POSITION}`);
   };
 
   const inputs = [

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../../services/api.service";
-import CONST from "../../constants/index";
+import { ROUTE } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { PrimaryButton, Card, FormInput } from "../../components";
 
@@ -13,8 +13,8 @@ function AddUser() {
   });
 
   const submit = async () => {
-    await api.post(CONST.ROUTE.DISEASE, formdata);
-    navigate(`/${CONST.ROUTE.DISEASE}`);
+    await api.post(ROUTE.DISEASE, formdata);
+    navigate(`/${ROUTE.DISEASE}`);
   };
 
   const inputs = [

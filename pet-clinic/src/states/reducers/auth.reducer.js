@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import api from "../../services/api.service";
-import CONST from "../../constants/index";
+import { api } from "../../services";
+import { ROUTE, SLICE } from "../../constants";
 
 const initialState = {
   user: {
@@ -16,12 +16,12 @@ const initialState = {
 
 export const authUser = createAsyncThunk("auth/authUser", async (props) => {
   return await api
-    .post(`${CONST.ROUTE.USER}/${CONST.ROUTE.AUTH}`, props.body)
+    .post(`${ROUTE.USER}/${ROUTE.AUTH}`, props.body)
     .then((res) => res.data);
 });
 
 export const authSlice = createSlice({
-  name: "auth",
+  name: SLICE.AUTH,
   initialState,
   reducers: {},
   extraReducers: (builder) => {

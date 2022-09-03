@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import api from "../../services/api.service";
-import CONST from "../../constants/index";
+import { api } from "../../services";
+import { ROUTE, SLICE } from "../../constants";
 
 const initialState = {
   entries: [],
@@ -9,7 +9,7 @@ const initialState = {
 export const fetchAnimalType = createAsyncThunk(
   "animalType/fetchAnimalType",
   async () => {
-    return await api.get(CONST.ROUTE.ANIMAL_TYPE).then((res) => res.data);
+    return await api.get(ROUTE.ANIMAL_TYPE).then((res) => res.data);
   }
 );
 
@@ -18,7 +18,7 @@ export const deleteAnimalType = createAsyncThunk(
   async (props) => {
     const { id } = props;
     return await api
-      .deleteById(`${CONST.ROUTE.ANIMAL_TYPE}/${id}`)
+      .deleteById(`${ROUTE.ANIMAL_TYPE}/${id}`)
       .then((res) => res.data);
   }
 );
@@ -28,7 +28,7 @@ export const updateAnimalType = createAsyncThunk(
   async (props) => {
     const { id, body } = props;
     return await api
-      .update(`${CONST.ROUTE.ANIMAL_TYPE}/${id}`, body)
+      .update(`${ROUTE.ANIMAL_TYPE}/${id}`, body)
       .then((res) => res.data);
   }
 );
@@ -37,13 +37,13 @@ export const addAnimalType = createAsyncThunk(
   "animalType/addAnimalType",
   async (props) => {
     return await api
-      .post(CONST.ROUTE.ANIMAL_TYPE, props.body)
+      .post(ROUTE.ANIMAL_TYPE, props.body)
       .then((res) => res.data);
   }
 );
 
 export const slice = createSlice({
-  name: CONST.SLICE.ANIMAL_TYPE,
+  name: SLICE.ANIMAL_TYPE,
   initialState,
   reducers: {},
   extraReducers: (builder) => {

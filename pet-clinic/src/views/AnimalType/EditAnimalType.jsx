@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api.service";
-import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
 import { PrimaryButton, Card, FormInput } from "../../components";
+import { ROUTE } from "../../constants";
 
 function EditAnimalType() {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ function EditAnimalType() {
   const get = async () => {
     const {
       data: { data },
-    } = await api.get(`${CONST.ROUTE.ANIMAL_TYPE}/${params.id}`);
+    } = await api.get(`${ROUTE.ANIMAL_TYPE}/${params.id}`);
     setformdata(data[0]);
   };
 
@@ -25,8 +25,8 @@ function EditAnimalType() {
   }, []);
 
   const submit = async () => {
-    await api.update(`${CONST.ROUTE.ANIMAL_TYPE}/${params.id}`, formdata);
-    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.ANIMAL_TYPE}`);
+    await api.update(`${ROUTE.ANIMAL_TYPE}/${params.id}`, formdata);
+    navigate(`/${ROUTE.DASHBOARD}/${ROUTE.ANIMAL_TYPE}`);
   };
 
   const inputs = [

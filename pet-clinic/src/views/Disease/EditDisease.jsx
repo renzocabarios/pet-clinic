@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api.service";
-import CONST from "../../constants/index";
+import { ROUTE } from "../../constants";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateData } from "../../states/reducers/disease.reducer";
@@ -20,7 +20,7 @@ function EditDisease() {
   const get = async () => {
     const {
       data: { data },
-    } = await api.get(`${CONST.ROUTE.DISEASE}/${params.id}`);
+    } = await api.get(`${ROUTE.DISEASE}/${params.id}`);
     setformdata(data[0]);
   };
 
@@ -30,7 +30,7 @@ function EditDisease() {
 
   const submit = async () => {
     dispatch(updateData({ id: params.id, body: formdata }));
-    navigate(`/${CONST.ROUTE.DISEASE}`);
+    navigate(`/${ROUTE.DISEASE}`);
   };
 
   const inputs = [

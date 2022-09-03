@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import api from "../../services/api.service";
-import CONST from "../../constants/index";
+import { api } from "../../services";
+import { ROUTE, SLICE } from "../../constants";
 
 const initialState = {
   entries: [],
 };
 
 export const fetchData = createAsyncThunk("disease/fetchData", async () => {
-  return await api.get(CONST.ROUTE.DISEASE).then((res) => res.data);
+  return await api.get(ROUTE.DISEASE).then((res) => res.data);
 });
 
 export const deleteData = createAsyncThunk(
@@ -15,7 +15,7 @@ export const deleteData = createAsyncThunk(
   async (props) => {
     const { id } = props;
     return await api
-      .deleteById(`${CONST.ROUTE.DISEASE}/${id}`)
+      .deleteById(`${ROUTE.DISEASE}/${id}`)
       .then((res) => res.data);
   }
 );
@@ -25,7 +25,7 @@ export const updateData = createAsyncThunk(
   async (props) => {
     const { id, body } = props;
     return await api
-      .update(`${CONST.ROUTE.DISEASE}/${id}`, body)
+      .update(`${ROUTE.DISEASE}/${id}`, body)
       .then((res) => res.data);
   }
 );
@@ -35,7 +35,7 @@ export const addData = createAsyncThunk("disease/addData", async (props) => {
 });
 
 export const diseaseSlice = createSlice({
-  name: "disease",
+  name: SLICE.DISEASE,
   initialState,
   reducers: {},
   extraReducers: (builder) => {

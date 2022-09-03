@@ -1,17 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import CONST from "../constants/index";
+import { ROUTE } from "../constants";
 
 function Sidenav() {
   const navigate = useNavigate();
 
   const links = [
-    { name: "User", route: `${CONST.ROUTE.USER}` },
-    { name: "Personnel", route: `${CONST.ROUTE.PERSONNEL}` },
-    { name: "Animal Type", route: `${CONST.ROUTE.ANIMAL_TYPE}` },
-    { name: "Animal", route: `${CONST.ROUTE.ANIMAL}` },
-    { name: "Disease", route: `${CONST.ROUTE.DISEASE}` },
-    { name: "Position", route: `${CONST.ROUTE.POSITION}` },
-    { name: "Setting", route: `${CONST.ROUTE.SETTING}` },
+    { name: "User", route: `${ROUTE.USER}` },
+    { name: "Personnel", route: `${ROUTE.PERSONNEL}` },
+    { name: "Animal Type", route: `${ROUTE.ANIMAL_TYPE}` },
+    { name: "Animal", route: `${ROUTE.ANIMAL}` },
+    { name: "Disease", route: `${ROUTE.DISEASE}` },
+    { name: "Position", route: `${ROUTE.POSITION}` },
+    { name: "Setting", route: `${ROUTE.SETTING}` },
   ];
 
   return (
