@@ -2,7 +2,7 @@ import { useRoutes } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { ROUTE } from "../constants";
+import { ROUTE } from "@/constants";
 import {
   RegisterUser,
   Dashboard,

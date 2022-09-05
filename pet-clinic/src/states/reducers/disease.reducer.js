@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { api } from "../../services";
-import { ROUTE, SLICE } from "../../constants";
+import { api } from "@/services";
+import { ROUTE, SLICE } from "@/constants";
 
 const initialState = {
   entries: [],
