@@ -10,6 +10,7 @@ import userRoute from "./app/routes/user.route.js";
 import diseaseRoute from "./app/routes/disease.route.js";
 import positionRoute from "./app/routes/position.route.js";
 import personnelRoute from "./app/routes/personnel.route.js";
+import adopterRoute from "./app/routes/adopter.route.js";
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use("/api/user", userRoute);
 app.use("/api/disease", diseaseRoute);
 app.use("/api/position", positionRoute);
 app.use("/api/personnel", personnelRoute);
+app.use("/api/adopter", adopterRoute);
 
 //initialization
 const start = () => {
