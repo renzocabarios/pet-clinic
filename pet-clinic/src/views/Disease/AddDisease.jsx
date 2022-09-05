@@ -1,11 +1,13 @@
 import { useState } from "react";
-import api from "../../services/api.service";
-import { ROUTE } from "../../constants";
 import { useNavigate } from "react-router-dom";
-import { PrimaryButton, Card, FormInput } from "../../components";
+import { useDispatch } from "react-redux";
+import { PrimaryButton, Card, FormInput } from "@/components";
+import { ROUTE } from "@/constants";
+import { addDisease } from "@/states/actions";
 
 function AddDisease() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [formdata, setformdata] = useState({
     name: "",
@@ -13,7 +15,7 @@ function AddDisease() {
   });
 
   const submit = async () => {
-    await api.post(ROUTE.DISEASE, formdata);
+    dispatch(addDisease({ body: formdata }));
     navigate(`/${ROUTE.DASHBOARD}/${ROUTE.DISEASE}`);
   };
 

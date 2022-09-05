@@ -1,5 +1,5 @@
-import { PrimaryButton } from "../components";
-import { date } from "../services";
+import { PrimaryButton } from "@/components";
+import { date } from "@/services";
 import { useSelector } from "react-redux";
 
 function Setting() {

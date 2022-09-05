@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { api } from "../../services";
-import { ROUTE, SLICE } from "../../constants";
+import { api } from "@/services";
+import { ROUTE, SLICE } from "@/constants";
 
 const initialState = {
   user: {
@@ -8,33 +8,38 @@ const initialState = {
     firstName: "",
     lastName: "",
     email: "",
-    DateCreated: new Date(),
-    DateUpdated: new Date(),
+    DateCreated: "",
+    DateUpdated: "",
   },
+  animals: [],
   token: "",
 };
 
-export const authUser = createAsyncThunk("auth/authUser", async (props) => {
+const authUser = createAsyncThunk("auth/authUser", async (props) => {
   return await api
     .post(`${ROUTE.USER}/${ROUTE.AUTH}`, props.body)
     .then((res) => res.data);
 });
 
-export const authSlice = createSlice({
+const slice = createSlice({
   name: SLICE.AUTH,
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(authUser.fulfilled, (state, action) => {
       const { status, data, token } = action.payload;
+      console.log(action.payload);
       if (status == "success") {
         state.user = data[0];
-        state.user.DateCreated = new Date(data[0].DateCreated);
-        state.user.DateUpdated = new Date(data[0].DateUpdated);
+        state.user.animals = data[0].animals ?? {};
+        state.user.DateCreated = data[0].DateCreated;
+        state.user.DateUpdated = data[0].DateUpdated;
         state.token = token;
       }
     });
   },
 });
 
-export default authSlice.reducer;
+const { reducer } = slice;
+export { authUser };
+export default reducer;

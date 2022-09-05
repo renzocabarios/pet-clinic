@@ -1,4 +1,5 @@
-function getStringDate(date) {
+function getStringDate(dateString) {
+  const date = new Date(dateString);
   return `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`;
 }
 

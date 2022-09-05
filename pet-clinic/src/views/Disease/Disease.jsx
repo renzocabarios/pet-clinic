@@ -1,21 +1,21 @@
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ROUTE, DATATABLE } from "../../constants";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData, deleteData } from "../../states/reducers/disease.reducer";
-import { PrimaryButton, DataTable } from "../../components";
+import { ROUTE, DATATABLE } from "@/constants";
+import { fetchDisease, deleteDisease } from "@/states/actions";
+import { PrimaryButton, DataTable } from "@/components";
 
 function Disease() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const data = useSelector((state) => {
     return state.diseaseReducer.entries;
   });
-  const dispatch = useDispatch();
-
-  const navigate = useNavigate();
 
   const deleteById = async (id) => {
-    dispatch(deleteData({ id }));
+    dispatch(deleteDisease({ id }));
   };
 
   const updateById = async (id) => {
@@ -30,7 +30,7 @@ function Disease() {
   const { header, dataName } = DATATABLE.DISEASE;
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchDisease());
   }, []);
 
   return (

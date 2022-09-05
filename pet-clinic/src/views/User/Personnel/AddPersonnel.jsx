@@ -2,13 +2,8 @@ import { useState, useEffect } from "react";
 import { ROUTE } from "../../../constants";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addData } from "../../../states/reducers/personnel.reducer";
-import {
-  PrimaryButton,
-  InputSelect,
-  Card,
-  FormInput,
-} from "../../../components";
+import { addPersonnel } from "@/states/actions";
+import { PrimaryButton, InputSelect, Card, FormInput } from "@/components";
 
 function AddPersonnel() {
   const navigate = useNavigate();
@@ -34,7 +29,7 @@ function AddPersonnel() {
   }, []);
 
   const submit = async () => {
-    dispatch(addData({ body: formdata }));
+    dispatch(addPersonnel({ body: formdata }));
     navigate(`/${ROUTE.DASHBOARD}/${ROUTE.PERSONNEL}`);
   };
 

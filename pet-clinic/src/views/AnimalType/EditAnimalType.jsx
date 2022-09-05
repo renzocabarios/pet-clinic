@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
-import api from "../../services/api.service";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { PrimaryButton, Card, FormInput } from "../../components";
-import { ROUTE } from "../../constants";
+import { PrimaryButton, Card, FormInput } from "@/components";
+import { ROUTE } from "@/constants";
+import { updateAnimalType } from "@/states/actions";
+import { useDispatch } from "react-redux";
 
 function EditAnimalType() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const params = useParams();
 
   const [formdata, setformdata] = useState({
@@ -13,19 +15,8 @@ function EditAnimalType() {
     description: "",
   });
 
-  const get = async () => {
-    const {
-      data: { data },
-    } = await api.get(`${ROUTE.ANIMAL_TYPE}/${params.id}`);
-    setformdata(data[0]);
-  };
-
-  useEffect(() => {
-    get();
-  }, []);
-
   const submit = async () => {
-    await api.update(`${ROUTE.ANIMAL_TYPE}/${params.id}`, formdata);
+    dispatch(updateAnimalType({ id: params.id, body: formdata }));
     navigate(`/${ROUTE.DASHBOARD}/${ROUTE.ANIMAL_TYPE}`);
   };
 
@@ -33,7 +24,6 @@ function EditAnimalType() {
     {
       name: "name",
       title: "Name",
-      defaultValue: formdata.name,
       onChange: (e) => {
         setformdata((prevState) => ({
           ...prevState,
@@ -44,7 +34,6 @@ function EditAnimalType() {
     {
       name: "description",
       title: "Description",
-      defaultValue: formdata.description,
       onChange: (e) => {
         setformdata((prevState) => ({
           ...prevState,
@@ -65,7 +54,6 @@ function EditAnimalType() {
                 name={i.name}
                 title={i.title}
                 onChange={i.onChange}
-                defaultValue={i.defaultValue}
                 key={i.name}
               />
             );

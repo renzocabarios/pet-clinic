@@ -1,12 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ROUTE, DATATABLE } from "../../constants";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchAnimal,
-  deleteAnimal,
-} from "../../states/reducers/animal.reducer";
-import { PrimaryButton, DataTable } from "../../components";
+import { ROUTE, DATATABLE } from "@/constants";
+import { fetchAnimal, deleteAnimal } from "@/states/actions";
+import { PrimaryButton, DataTable } from "@/components";
 
 function Animal() {
   const navigate = useNavigate();

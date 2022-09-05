@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ROUTE } from "../constants";
+import { ROUTE } from "@/constants";
 
 function Sidenav() {
   const navigate = useNavigate();

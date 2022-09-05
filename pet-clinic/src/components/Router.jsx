@@ -2,19 +2,33 @@ import { useRoutes } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { ROUTE } from "../constants";
-import { RegisterUser, Dashboard, Setting, LoginUser } from "../views";
-import { AnimalType, AddAnimalType, EditAnimalType } from "../views/AnimalType";
-import { Animal, AddAnimal, EditAnimal } from "../views/Animal";
-import { Disease, AddDisease, EditDisease } from "../views/Disease";
-import { Position, AddPosition, EditPosition } from "../views/Position";
+import { ROUTE } from "@/constants";
 import {
+  RegisterUser,
+  Dashboard,
+  Setting,
+  LoginUser,
+  AdoptAnimal,
+  ConfirmAdopt,
+  MyAnimal,
   Personnel,
   AddPersonnel,
   EditPersonnel,
   User,
   AddUser,
-} from "../views/User";
+  AddPosition,
+  EditPosition,
+  Position,
+  Disease,
+  AddDisease,
+  EditDisease,
+  Animal,
+  AddAnimal,
+  EditAnimal,
+  AnimalType,
+  AddAnimalType,
+  EditAnimalType,
+} from "../views";
 
 function Router() {
   const location = useLocation();
@@ -38,6 +52,18 @@ function Router() {
     {
       path: ROUTE.REGISTER,
       element: <RegisterUser />,
+    },
+    {
+      path: ROUTE.ADOPT,
+      element: <AdoptAnimal />,
+    },
+    {
+      path: `/${ROUTE.ADOPT}/${ROUTE.CONFIRM}`,
+      element: <ConfirmAdopt />,
+    },
+    {
+      path: ROUTE.MY_ANIMAL,
+      element: <MyAnimal />,
     },
     {
       path: `/${ROUTE.DASHBOARD}`,
