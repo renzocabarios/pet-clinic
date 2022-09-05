@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import paginate from "mongoose-paginate";
-import CONST from "../../../constants/index.js";
+import CONST from "../../constants/index.js";
 import model from "./user.model.js";
 
 const schema = mongoose.Schema({

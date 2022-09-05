@@ -1,4 +1,4 @@
-import service from "../../services/user/personnel.service.js";
+import service from "../../services/user/adopter.service.js";
 import bcrypt from "bcrypt";
 import ENV from "../../../env/index.js";
 
@@ -14,11 +14,4 @@ const add = async (req, res) => {
   res.send({ data });
 };
 
-const changePosition = async (req, res) => {
-  const { id } = req.params;
-  const { position } = req.body;
-  const data = await service.update(id, { position });
-  res.send({ data: [data] });
-};
-
-export { getAll, add, changePosition };
+export { getAll, add };
