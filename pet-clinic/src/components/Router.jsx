@@ -3,18 +3,29 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ROUTE } from "../constants";
-import { RegisterUser, Dashboard, Setting, LoginUser } from "../views";
-import { AnimalType, AddAnimalType, EditAnimalType } from "../views/AnimalType";
-import { Animal, AddAnimal, EditAnimal } from "../views/Animal";
-import { Disease, AddDisease, EditDisease } from "../views/Disease";
-import { Position, AddPosition, EditPosition } from "../views/Position";
 import {
+  RegisterUser,
+  Dashboard,
+  Setting,
+  LoginUser,
   Personnel,
   AddPersonnel,
   EditPersonnel,
   User,
   AddUser,
-} from "../views/User";
+  AddPosition,
+  EditPosition,
+  Position,
+  Disease,
+  AddDisease,
+  EditDisease,
+  Animal,
+  AddAnimal,
+  EditAnimal,
+  AnimalType,
+  AddAnimalType,
+  EditAnimalType,
+} from "../views";
 
 function Router() {
   const location = useLocation();

@@ -6,7 +6,7 @@ function Dashboard() {
     <div className="h-screen bg-gray-600">
       <div className="template h-full">
         <Sidenav />
-        <div className="m-3 ">
+        <div className="m-3">
           <Outlet />
         </div>
       </div>
