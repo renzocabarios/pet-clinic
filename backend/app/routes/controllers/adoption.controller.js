@@ -1,4 +1,5 @@
-import service from "../services/animal.service.js";
+import service from "../services/adoption.service.js";
+import adopter from "../services/user/adopter.service.js";
 
 const getAll = async (req, res) => {
   const data = await service.getAll();
@@ -13,19 +14,20 @@ const getById = async (req, res) => {
 
 const add = async (req, res) => {
   const data = await service.add(req.body);
-  res.send({ data: [data] });
+  res.send({ data });
 };
 
-const update = async (req, res) => {
+const approve = async (req, res) => {
   const { id } = req.params;
-  const data = await service.update(id, req.body);
+  const data = await service.update(id, { approved: true });
+  await adopter.addAnimal(data.adopter, data.animal);
   res.send({ data });
 };
 
 const deleteById = async (req, res) => {
   const { id } = req.params;
   const data = await service.deleteById(id);
-  res.send({ data: [data] });
+  res.send({ data });
 };
 
-export { getAll, getById, add, update, deleteById };
+export { getAll, getById, add, approve, deleteById };

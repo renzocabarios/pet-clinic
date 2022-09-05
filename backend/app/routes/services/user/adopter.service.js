@@ -8,10 +8,14 @@ const add = async (body) => {
   return await model.create(body);
 };
 
-const update = async (_id, body) => {
-  return await model.findOneAndUpdate({ _id, deleted: false }, body, {
-    new: true,
-  });
+const addAnimal = async (_id, animal) => {
+  return await model.findOneAndUpdate(
+    { _id, deleted: false },
+    { $push: { animals: animal } },
+    {
+      new: true,
+    }
+  );
 };
 
-export default { getAll, add, update };
+export default { getAll, add, addAnimal };
