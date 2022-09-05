@@ -34,6 +34,8 @@ import animalReducer, {
   addAnimal,
 } from "./animal.reducer";
 
+import userReducer, { fetchUser, deleteUser } from "./user.reducer";
+
 export {
   diseaseReducer,
   authReducer,
@@ -41,6 +43,7 @@ export {
   personnelReducer,
   animalTypeReducer,
   animalReducer,
+  userReducer,
   fetchAnimalType,
   deleteAnimalType,
   updateAnimalType,
@@ -61,4 +64,6 @@ export {
   deletePosition,
   updatePosition,
   addPosition,
+  fetchUser,
+  deleteUser,
 };

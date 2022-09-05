@@ -6,6 +6,7 @@ import {
   personnelReducer,
   animalTypeReducer,
   animalReducer,
+  userReducer,
 } from "./reducers";
 
 export const store = configureStore({
@@ -16,5 +17,6 @@ export const store = configureStore({
     personnelReducer,
     animalTypeReducer,
     animalReducer,
+    userReducer,
   },
 });

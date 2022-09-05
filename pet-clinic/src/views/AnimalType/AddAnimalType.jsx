@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addAnimalType } from "../../states/reducers/animal-type.reducer";
-import { PrimaryButton, Card, FormInput } from "../../components";
-import { ROUTE } from "../../constants";
+import { addAnimalType } from "@/states/actions";
+import { PrimaryButton, Card, FormInput } from "@/components";
+import { ROUTE } from "@/constants";
 
 function AddAnimalType() {
   const navigate = useNavigate();

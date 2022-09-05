@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { ROUTE } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addPosition } from "../../states/reducers/position.reducer";
-import { PrimaryButton, FormInput, Card } from "../../components";
+import { ROUTE } from "@/constants";
+import { addPosition } from "@/states/actions";
+import { PrimaryButton, FormInput, Card } from "@/components";
 
 function AddPosition() {
   const navigate = useNavigate();

@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.nav{
-    height: 5%;
-}
-
 .template{
     display: grid;
     grid-template-columns: 15rem auto;
@@ -23,4 +19,14 @@
 .navbar{
     display: grid;
     grid-template-columns: 4rem auto 4rem;
+}
+
+.adopt-template{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.basic-template{
+    display: grid;
+    grid-template-rows: max-content auto;
 }

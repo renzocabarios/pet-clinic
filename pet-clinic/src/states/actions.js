@@ -19,6 +19,8 @@ import {
   deletePosition,
   updatePosition,
   addPosition,
+  fetchUser,
+  deleteUser,
 } from "./reducers";
 
 export {
@@ -42,4 +44,6 @@ export {
   deletePosition,
   updatePosition,
   addPosition,
+  fetchUser,
+  deleteUser,
 };

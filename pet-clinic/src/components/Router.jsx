@@ -8,6 +8,9 @@ import {
   Dashboard,
   Setting,
   LoginUser,
+  AdoptAnimal,
+  ConfirmAdopt,
+  MyAnimal,
   Personnel,
   AddPersonnel,
   EditPersonnel,
@@ -49,6 +52,18 @@ function Router() {
     {
       path: ROUTE.REGISTER,
       element: <RegisterUser />,
+    },
+    {
+      path: ROUTE.ADOPT,
+      element: <AdoptAnimal />,
+    },
+    {
+      path: `/${ROUTE.ADOPT}/${ROUTE.CONFIRM}`,
+      element: <ConfirmAdopt />,
+    },
+    {
+      path: ROUTE.MY_ANIMAL,
+      element: <MyAnimal />,
     },
     {
       path: `/${ROUTE.DASHBOARD}`,

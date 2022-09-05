@@ -5,4 +5,5 @@ export default {
   ANIMAL_TYPE: "animal-type",
   ANIMAL: "animal",
   AUTH: "auth",
+  USER: "user",
 };

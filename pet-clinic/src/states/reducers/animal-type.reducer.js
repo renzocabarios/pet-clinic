@@ -4,6 +4,11 @@ import { ROUTE, SLICE } from "../../constants";
 
 const initialState = {
   entries: [],
+  form: {
+    _id: "",
+    name: "",
+    description: "",
+  },
 };
 
 const fetchAnimalType = createAsyncThunk(

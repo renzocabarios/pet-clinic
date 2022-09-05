@@ -12,4 +12,7 @@ export default {
   DASHBOARD: "dashboard",
   POSITION: "position",
   SETTING: "setting",
+  ADOPT: "adopt",
+  CONFIRM: "confirm",
+  MY_ANIMAL: "my-animal",
 };

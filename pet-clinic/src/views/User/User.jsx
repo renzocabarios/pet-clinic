@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react";
-import { api } from "../../services";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ROUTE, DATATABLE } from "../../constants";
-import { PrimaryButton, DataTable } from "../../components";
+import { ROUTE, DATATABLE } from "@/constants";
+import { PrimaryButton, DataTable } from "@/components";
+import { fetchUser } from "@/states/actions";
+import { useSelector, useDispatch } from "react-redux";
 
 function User() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const [data, setdata] = useState([]);
+  const data = useSelector((state) => {
+    return state.userReducer.entries;
+  });
 
   const deleteById = async (id) => {
-    await api.deleteById(`${ROUTE.USER}/${id}`);
-    get();
+    dispatch(deleteUser({ id }));
   };
 
   const updateById = async (id) => {
@@ -25,16 +28,9 @@ function User() {
 
   const { header, dataName } = DATATABLE.USER;
 
-  const get = async () => {
-    const {
-      data: { data },
-    } = await api.get(ROUTE.USER);
-    setdata(data);
-  };
-
   useEffect(() => {
-    get();
-  }, []);
+    dispatch(fetchUser());
+  }, [data]);
 
   return (
     <>
