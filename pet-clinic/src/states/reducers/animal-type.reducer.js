@@ -6,14 +6,14 @@ const initialState = {
   entries: [],
 };
 
-export const fetchAnimalType = createAsyncThunk(
+const fetchAnimalType = createAsyncThunk(
   "animalType/fetchAnimalType",
   async () => {
     return await api.get(ROUTE.ANIMAL_TYPE).then((res) => res.data);
   }
 );
 
-export const deleteAnimalType = createAsyncThunk(
+const deleteAnimalType = createAsyncThunk(
   "animalType/deleteAnimalType",
   async (props) => {
     const { id } = props;
@@ -23,7 +23,7 @@ export const deleteAnimalType = createAsyncThunk(
   }
 );
 
-export const updateAnimalType = createAsyncThunk(
+const updateAnimalType = createAsyncThunk(
   "animalType/updateAnimalType",
   async (props) => {
     const { id, body } = props;
@@ -33,7 +33,7 @@ export const updateAnimalType = createAsyncThunk(
   }
 );
 
-export const addAnimalType = createAsyncThunk(
+const addAnimalType = createAsyncThunk(
   "animalType/addAnimalType",
   async (props) => {
     return await api
@@ -42,7 +42,7 @@ export const addAnimalType = createAsyncThunk(
   }
 );
 
-export const slice = createSlice({
+const slice = createSlice({
   name: SLICE.ANIMAL_TYPE,
   initialState,
   reducers: {},
@@ -63,4 +63,6 @@ export const slice = createSlice({
   },
 });
 
-export default slice.reducer;
+const { reducer } = slice;
+export { fetchAnimalType, deleteAnimalType, updateAnimalType, addAnimalType };
+export default reducer;

@@ -11,16 +11,17 @@ const initialState = {
     DateCreated: "",
     DateUpdated: "",
   },
+  animals: [],
   token: "",
 };
 
-export const authUser = createAsyncThunk("auth/authUser", async (props) => {
+const authUser = createAsyncThunk("auth/authUser", async (props) => {
   return await api
     .post(`${ROUTE.USER}/${ROUTE.AUTH}`, props.body)
     .then((res) => res.data);
 });
 
-export const authSlice = createSlice({
+const slice = createSlice({
   name: SLICE.AUTH,
   initialState,
   reducers: {},
@@ -29,6 +30,7 @@ export const authSlice = createSlice({
       const { status, data, token } = action.payload;
       if (status == "success") {
         state.user = data[0];
+        state.user.animals = data[0].animals ?? {};
         state.user.DateCreated = data[0].DateCreated;
         state.user.DateUpdated = data[0].DateUpdated;
         state.token = token;
@@ -37,4 +39,6 @@ export const authSlice = createSlice({
   },
 });
 
-export default authSlice.reducer;
+const { reducer } = slice;
+export { authUser };
+export default reducer;

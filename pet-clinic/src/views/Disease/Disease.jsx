@@ -3,7 +3,10 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTE, DATATABLE } from "../../constants";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData, deleteData } from "../../states/reducers/disease.reducer";
+import {
+  fetchDisease,
+  deleteDisease,
+} from "../../states/reducers/disease.reducer";
 import { PrimaryButton, DataTable } from "../../components";
 
 function Disease() {
@@ -15,7 +18,7 @@ function Disease() {
   const navigate = useNavigate();
 
   const deleteById = async (id) => {
-    dispatch(deleteData({ id }));
+    dispatch(deleteDisease({ id }));
   };
 
   const updateById = async (id) => {
@@ -30,7 +33,7 @@ function Disease() {
   const { header, dataName } = DATATABLE.DISEASE;
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchDisease());
   }, []);
 
   return (

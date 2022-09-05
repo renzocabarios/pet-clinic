@@ -3,7 +3,7 @@ import api from "../../services/api.service";
 import { ROUTE } from "../../constants";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { updateData } from "../../states/reducers/position.reducer";
+import { updatePosition } from "../../states/reducers/position.reducer";
 import { PrimaryButton, FormInput, Card } from "../../components";
 
 function EditPosition() {
@@ -30,7 +30,7 @@ function EditPosition() {
   }, []);
 
   const submit = async () => {
-    dispatch(updateData({ id: params.id, body: formdata }));
+    dispatch(updatePosition({ id: params.id, body: formdata }));
     navigate(`/${ROUTE.DASHBOARD}/${ROUTE.POSITION}`);
   };
 

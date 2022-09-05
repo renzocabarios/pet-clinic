@@ -3,7 +3,7 @@ import api from "../../services/api.service";
 import { ROUTE } from "../../constants";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { updateData } from "../../states/reducers/disease.reducer";
+import { updateDisease } from "../../states/reducers/disease.reducer";
 import { PrimaryButton, Card, FormInput } from "../../components";
 
 function EditDisease() {
@@ -29,7 +29,7 @@ function EditDisease() {
   }, []);
 
   const submit = async () => {
-    dispatch(updateData({ id: params.id, body: formdata }));
+    dispatch(updateDisease({ id: params.id, body: formdata }));
     navigate(`/${ROUTE.DISEASE}`);
   };
 

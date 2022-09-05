@@ -6,14 +6,17 @@ const initialState = {
   entries: [],
 };
 
-export const fetchData = createAsyncThunk("personnel/fetchData", async () => {
-  return await api
-    .get(`${ROUTE.PERSONNEL}?populate=position`)
-    .then((res) => res.data);
-});
+const fetchPersonnel = createAsyncThunk(
+  "personnel/fetchPersonnel",
+  async () => {
+    return await api
+      .get(`${ROUTE.PERSONNEL}?populate=position`)
+      .then((res) => res.data);
+  }
+);
 
-export const updateData = createAsyncThunk(
-  "personnel/updateData",
+const updatePersonnel = createAsyncThunk(
+  "personnel/updatePersonnel",
   async (props) => {
     const { id, body } = props;
     return await api
@@ -22,23 +25,28 @@ export const updateData = createAsyncThunk(
   }
 );
 
-export const addData = createAsyncThunk("personnel/addData", async (props) => {
-  return await api.post(ROUTE.PERSONNEL, props.body).then((res) => res.data);
-});
+const addPersonnel = createAsyncThunk(
+  "personnel/addPersonnel",
+  async (props) => {
+    return await api.post(ROUTE.PERSONNEL, props.body).then((res) => res.data);
+  }
+);
 
-export const slice = createSlice({
+const slice = createSlice({
   name: SLICE.PERSONNEL,
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchData.fulfilled, (state, action) => {
+    builder.addCase(fetchPersonnel.fulfilled, (state, action) => {
       state.entries = action.payload.data;
     });
 
-    builder.addCase(addData.fulfilled, (state, action) => {
+    builder.addCase(addPersonnel.fulfilled, (state, action) => {
       state.entries.push(action.payload.data);
     });
   },
 });
 
-export default slice.reducer;
+const { reducer } = slice;
+export { fetchPersonnel, updatePersonnel, addPersonnel };
+export default reducer;

@@ -6,12 +6,12 @@ const initialState = {
   entries: [],
 };
 
-export const fetchData = createAsyncThunk("disease/fetchData", async () => {
+const fetchDisease = createAsyncThunk("disease/fetchDisease", async () => {
   return await api.get(ROUTE.DISEASE).then((res) => res.data);
 });
 
-export const deleteData = createAsyncThunk(
-  "disease/deleteData",
+const deleteDisease = createAsyncThunk(
+  "disease/deleteDiseaseDisease",
   async (props) => {
     const { id } = props;
     return await api
@@ -20,8 +20,8 @@ export const deleteData = createAsyncThunk(
   }
 );
 
-export const updateData = createAsyncThunk(
-  "disease/updateData",
+const updateDisease = createAsyncThunk(
+  "disease/updateDisease",
   async (props) => {
     const { id, body } = props;
     return await api
@@ -30,29 +30,31 @@ export const updateData = createAsyncThunk(
   }
 );
 
-export const addData = createAsyncThunk("disease/addData", async (props) => {
+const addDisease = createAsyncThunk("disease/addDisease", async (props) => {
   return await api.post(props.body).then((res) => res.data);
 });
 
-export const diseaseSlice = createSlice({
+const slice = createSlice({
   name: SLICE.DISEASE,
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchData.fulfilled, (state, action) => {
+    builder.addCase(fetchDisease.fulfilled, (state, action) => {
       state.entries = action.payload.data;
     });
 
-    builder.addCase(deleteData.fulfilled, (state, action) => {
+    builder.addCase(deleteDisease.fulfilled, (state, action) => {
       state.entries = state.entries.filter((e) => {
         return e._id != action.payload.data._id;
       });
     });
 
-    builder.addCase(addData.fulfilled, (state, action) => {
+    builder.addCase(addDisease.fulfilled, (state, action) => {
       state.entries.push(action.payload.data);
     });
   },
 });
 
-export default diseaseSlice.reducer;
+const { reducer } = slice;
+export { fetchDisease, deleteDisease, updateDisease, addDisease };
+export default reducer;

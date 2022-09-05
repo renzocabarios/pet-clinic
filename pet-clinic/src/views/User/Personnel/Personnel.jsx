@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTE, DATATABLE } from "../../../constants";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData } from "../../../states/reducers/personnel.reducer";
+import { fetchPersonnel } from "../../../states/reducers/personnel.reducer";
 import { PrimaryButton, DataTable } from "../../../components";
 
 function Personnel() {
@@ -22,7 +22,7 @@ function Personnel() {
   const { header, dataName } = DATATABLE.PERSONNEL;
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchPersonnel());
   }, []);
 
   return (

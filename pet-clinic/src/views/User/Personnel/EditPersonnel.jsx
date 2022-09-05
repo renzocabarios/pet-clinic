@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ROUTE } from "../../../constants";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updateData } from "../../../states/reducers/personnel.reducer";
+import { updatePersonnel } from "../../../states/reducers/personnel.reducer";
 import { PrimaryButton, InputSelect, Card } from "../../../components";
 
 function EditPersonnel() {
@@ -19,7 +19,7 @@ function EditPersonnel() {
   });
 
   const submit = async () => {
-    dispatch(updateData({ id: params.id, body: formdata }));
+    dispatch(updatePersonnel({ id: params.id, body: formdata }));
     navigate(`/${ROUTE.DASHBOARD}/${ROUTE.PERSONNEL}`);
   };
 

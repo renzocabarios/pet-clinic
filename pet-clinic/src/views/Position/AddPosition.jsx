@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ROUTE } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addData } from "../../states/reducers/position.reducer";
+import { addPosition } from "../../states/reducers/position.reducer";
 import { PrimaryButton, FormInput, Card } from "../../components";
 
 function AddPosition() {
@@ -15,7 +15,7 @@ function AddPosition() {
   });
 
   const submit = async () => {
-    dispatch(addData({ body: formdata }));
+    dispatch(addPosition({ body: formdata }));
     navigate(`/${ROUTE.DASHBOARD}/${ROUTE.POSITION}`);
   };
 

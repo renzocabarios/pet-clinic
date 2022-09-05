@@ -3,7 +3,10 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTE, DATATABLE } from "../../constants";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData, deleteData } from "../../states/reducers/position.reducer";
+import {
+  fetchPosition,
+  deletePosition,
+} from "../../states/reducers/position.reducer";
 import { PrimaryButton, DataTable } from "../../components";
 
 function Position() {
@@ -15,7 +18,7 @@ function Position() {
   });
 
   const deleteById = async (id) => {
-    dispatch(deleteData({ id }));
+    dispatch(deletePosition({ id }));
   };
 
   const updateById = async (id) => {
@@ -30,7 +33,7 @@ function Position() {
   const { header, dataName } = DATATABLE.POSITION;
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchPosition());
   }, [data]);
 
   return (

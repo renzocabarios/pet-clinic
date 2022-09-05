@@ -6,12 +6,12 @@ const initialState = {
   entries: [],
 };
 
-export const fetchData = createAsyncThunk("position/fetchData", async () => {
+const fetchPosition = createAsyncThunk("position/fetchPosition", async () => {
   return await api.get(ROUTE.POSITION).then((res) => res.data);
 });
 
-export const deleteData = createAsyncThunk(
-  "position/deleteData",
+const deletePosition = createAsyncThunk(
+  "position/deletePosition",
   async (props) => {
     const { id } = props;
     return await api
@@ -20,8 +20,8 @@ export const deleteData = createAsyncThunk(
   }
 );
 
-export const updateData = createAsyncThunk(
-  "position/updateData",
+const updatePosition = createAsyncThunk(
+  "position/updatePosition",
   async (props) => {
     const { id, body } = props;
     return await api
@@ -30,29 +30,31 @@ export const updateData = createAsyncThunk(
   }
 );
 
-export const addData = createAsyncThunk("position/addData", async (props) => {
+const addPosition = createAsyncThunk("position/addPosition", async (props) => {
   return await api.post(ROUTE.POSITION, props.body).then((res) => res.data);
 });
 
-export const slice = createSlice({
+const slice = createSlice({
   name: SLICE.POSITION,
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchData.fulfilled, (state, action) => {
+    builder.addCase(fetchPosition.fulfilled, (state, action) => {
       state.entries = action.payload.data;
     });
 
-    builder.addCase(deleteData.fulfilled, (state, action) => {
+    builder.addCase(deletePosition.fulfilled, (state, action) => {
       state.entries = state.entries.filter((e) => {
         return e._id != action.payload.data._id;
       });
     });
 
-    builder.addCase(addData.fulfilled, (state, action) => {
+    builder.addCase(addPosition.fulfilled, (state, action) => {
       state.entries.push(action.payload.data);
     });
   },
 });
 
-export default slice.reducer;
+const { reducer } = slice;
+export { fetchPosition, deletePosition, updatePosition, addPosition };
+export default reducer;
