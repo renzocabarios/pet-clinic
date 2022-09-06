@@ -1,4 +1,5 @@
 import PrimaryButton from "./PrimaryButton";
+import { parser } from "@/services";
 
 function DataTable({ header, data, dataName, actions }) {
   return (
@@ -17,26 +18,16 @@ function DataTable({ header, data, dataName, actions }) {
           </tr>
         </thead>
         <tbody>
-          {data.map((i, index) => {
+          {data.map((i) => {
             return (
               <tr
                 className="text-center border-y-2 border-gray-600 bg-gray-800  hover:bg-gray-700 transition-all"
-                key={index}
+                key={i._id}
               >
-                {dataName.map((name, index1) => {
-                  let value = name;
-                  if (name.includes(".")) {
-                    const keys = name.split(".");
-                    let tempValue = i[keys[0]];
-                    keys.shift();
-                    keys.forEach((element) => {
-                      tempValue = tempValue[element];
-                    });
-                    value = tempValue;
-                  }
+                {dataName.map((name) => {
                   return (
-                    <td className="p-3  text-white" key={index1}>
-                      {name.includes(".") ? value : i[name]}
+                    <td className="p-3 text-white" key={i[name]}>
+                      {parser.parse(i, parser.stringToArray(name))}
                     </td>
                   );
                 })}
