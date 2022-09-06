@@ -11,7 +11,8 @@ const start = () => {
       {
         firstName: "Spy",
         lastName: "Aspin",
-        password: "User123!",
+        password:
+          "$2b$10$.7qptpSeaOS.oyVGUBSPPuKitNQy8L4lEox5Jy1hjlQ8C.dJgDdES",
         email: "renzo.cabarios@gmail.com",
       },
     ]);
