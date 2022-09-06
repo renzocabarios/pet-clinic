@@ -7,4 +7,5 @@ export default {
   AUTH: "auth",
   USER: "user",
   ADOPTION: "adoption",
+  ADOPTER: "adopter",
 };

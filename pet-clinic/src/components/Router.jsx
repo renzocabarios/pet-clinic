@@ -29,6 +29,8 @@ import {
   AddAnimalType,
   EditAnimalType,
   Adoption,
+  Adopter,
+  AddAdopter,
 } from "../views";
 
 function Router() {
@@ -70,6 +72,14 @@ function Router() {
       path: `/${ROUTE.DASHBOARD}`,
       element: <Dashboard />,
       children: [
+        {
+          path: `${ROUTE.ADOPTER}/${ROUTE.ADD}`,
+          element: <AddAdopter />,
+        },
+        {
+          path: ROUTE.ADOPTER,
+          element: <Adopter />,
+        },
         {
           path: ROUTE.ADOPTION,
           element: <Adoption />,
