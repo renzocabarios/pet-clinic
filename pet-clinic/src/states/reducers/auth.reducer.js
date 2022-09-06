@@ -28,7 +28,6 @@ const slice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(authUser.fulfilled, (state, action) => {
       const { status, data, token } = action.payload;
-      console.log(action.payload);
       if (status == "success") {
         state.user = data[0];
         state.user.animals = data[0].animals ?? {};
