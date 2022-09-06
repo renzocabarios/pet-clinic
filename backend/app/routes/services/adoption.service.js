@@ -1,7 +1,7 @@
 import model from "../models/adoption.model.js";
 
-const getAll = async () => {
-  return await model.find({ deleted: false });
+const getAll = async (query) => {
+  return await model.find({ deleted: false }).populate(query.populate ?? "");
 };
 
 const getById = async (_id) => {
