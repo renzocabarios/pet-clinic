@@ -15,4 +15,5 @@ export default {
   ADOPT: "adopt",
   CONFIRM: "confirm",
   MY_ANIMAL: "my-animal",
+  ADOPTION: "adoption",
 };

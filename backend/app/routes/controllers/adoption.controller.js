@@ -2,7 +2,7 @@ import service from "../services/adoption.service.js";
 import adopter from "../services/user/adopter.service.js";
 
 const getAll = async (req, res) => {
-  const data = await service.getAll();
+  const data = await service.getAll(req.query);
   res.send({ data });
 };
 

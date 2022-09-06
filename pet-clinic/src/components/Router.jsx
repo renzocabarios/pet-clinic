@@ -28,6 +28,7 @@ import {
   AnimalType,
   AddAnimalType,
   EditAnimalType,
+  Adoption,
 } from "../views";
 
 function Router() {
@@ -69,6 +70,10 @@ function Router() {
       path: `/${ROUTE.DASHBOARD}`,
       element: <Dashboard />,
       children: [
+        {
+          path: ROUTE.ADOPTION,
+          element: <Adoption />,
+        },
         {
           path: ROUTE.ANIMAL_TYPE,
           element: <AnimalType />,

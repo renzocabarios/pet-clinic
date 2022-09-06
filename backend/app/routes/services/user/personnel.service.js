@@ -1,7 +1,6 @@
 import model from "../../models/user/personnel.model.js";
 
 const getAll = async (query) => {
-  const filter = query ?? {};
   const populate = query.populate ?? {};
   return await model.find({ deleted: false }).populate(populate);
 };

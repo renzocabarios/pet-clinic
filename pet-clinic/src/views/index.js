@@ -10,8 +10,10 @@ import { AddPosition, EditPosition, Position } from "./Position";
 import { AddDisease, EditDisease, Disease } from "./Disease";
 import { AddAnimalType, EditAnimalType, AnimalType } from "./AnimalType";
 import { AddAnimal, EditAnimal, Animal } from "./Animal";
+import { Adoption } from "./Adoption";
 
 export {
+  Adoption,
   LoginUser,
   RegisterUser,
   Setting,
