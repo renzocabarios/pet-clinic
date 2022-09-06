@@ -4,8 +4,8 @@ export default {
     dataName: ["firstName", "lastName", "email", "position.name"],
   },
   USER: {
-    header: ["First Name", "Last Name", "Email"],
-    dataName: ["firstName", "lastName", "email"],
+    header: ["First Name", "Last Name", "Email", "Type"],
+    dataName: ["firstName", "lastName", "email", "type"],
   },
   POSITION: {
     header: ["Position Name", "Description"],
