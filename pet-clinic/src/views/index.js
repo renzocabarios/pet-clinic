@@ -12,6 +12,7 @@ import {
   EditPersonnel,
   Personnel,
   Adopter,
+  AddAdopter,
 } from "./User";
 import { AddPosition, EditPosition, Position } from "./Position";
 import { AddDisease, EditDisease, Disease } from "./Disease";
@@ -20,6 +21,7 @@ import { AddAnimal, EditAnimal, Animal } from "./Animal";
 import { Adoption } from "./Adoption";
 
 export {
+  AddAdopter,
   Adopter,
   Adoption,
   LoginUser,
