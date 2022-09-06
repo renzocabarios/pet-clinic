@@ -6,4 +6,5 @@ export default {
   ANIMAL: "animal",
   AUTH: "auth",
   USER: "user",
+  ADOPTION: "adoption",
 };
