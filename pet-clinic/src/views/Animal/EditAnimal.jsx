@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import CONST from "../../constants/index";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updateAnimal } from "../../states/reducers/animal.reducer";
-import { fetchAnimalType } from "../../states/reducers/animal-type.reducer";
-import { PrimaryButton, Card, FormInput } from "../../components";
+import { ROUTE } from "@/constants";
+import { fetchAnimalType, updateAnimal } from "@/states/actions";
+import { PrimaryButton, Card, FormInput } from "@/components";
 
 function EditAnimal() {
   const navigate = useNavigate();
@@ -29,7 +28,7 @@ function EditAnimal() {
 
   const submit = async () => {
     dispatch(updateAnimal({ id: params.id, body: formdata }));
-    navigate(`/${CONST.ROUTE.DASHBOARD}/${CONST.ROUTE.ANIMAL}`);
+    navigate(`/${ROUTE.DASHBOARD}/${ROUTE.ANIMAL}`);
   };
 
   const inputs = [

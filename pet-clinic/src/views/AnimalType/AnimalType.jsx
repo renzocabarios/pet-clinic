@@ -1,13 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import CONST from "../../constants/index";
+import { ROUTE, DATATABLE } from "@/constants";
+import { fetchAnimalType, deleteAnimalType } from "@/states/actions";
+import { PrimaryButton, DataTable } from "@/components";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchAnimalType,
-  deleteAnimalType,
-} from "../../states/reducers/animal-type.reducer";
-import { PrimaryButton, DataTable } from "../../components";
 
 function AnimalType() {
   const navigate = useNavigate();
@@ -22,7 +19,7 @@ function AnimalType() {
   };
 
   const updateById = async (id) => {
-    navigate(`${id}/${CONST.ROUTE.EDIT}`);
+    navigate(`${id}/${ROUTE.EDIT}`);
   };
 
   const actions = [
@@ -30,7 +27,7 @@ function AnimalType() {
     { title: "Delete", onClick: deleteById },
   ];
 
-  const { header, dataName } = CONST.DATATABLE.ANIMAL_TYPE;
+  const { header, dataName } = DATATABLE.ANIMAL_TYPE;
 
   useEffect(() => {
     dispatch(fetchAnimalType());
@@ -41,7 +38,7 @@ function AnimalType() {
       <PrimaryButton
         title={"Add"}
         onClick={() => {
-          navigate(CONST.ROUTE.ADD);
+          navigate(ROUTE.ADD);
         }}
       />
       <DataTable

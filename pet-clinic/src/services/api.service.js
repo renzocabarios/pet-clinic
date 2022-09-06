@@ -2,19 +2,19 @@ import axios from "axios";
 
 const BASE_URL = "http://localhost:9000/api/";
 
-export function get(url) {
+function get(url) {
   return axios.get(`${BASE_URL}${url}`);
 }
 
-export function post(url, body) {
+function post(url, body) {
   return axios.post(`${BASE_URL}${url}`, body);
 }
 
-export function update(url, body) {
+function update(url, body) {
   return axios.patch(`${BASE_URL}${url}`, body);
 }
 
-export function deleteById(url) {
+function deleteById(url) {
   return axios.delete(`${BASE_URL}${url}`);
 }
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import api from "../services/api.service";
-import CONST from "../constants/index";
 import { useNavigate } from "react-router-dom";
-import { FormInput, PrimaryButton, Card } from "../components";
+import api from "@/services/api.service";
+import { ROUTE } from "@/constants";
+import { FormInput, PrimaryButton, Card } from "@/components";
 
 function RegisterUser() {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function RegisterUser() {
   });
 
   const submit = async () => {
-    await api.post(CONST.ROUTE.USER, formdata);
+    await api.post(ROUTE.USER, formdata);
     navigate(`/`);
   };
 

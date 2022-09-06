@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import CONST from "../../constants/index";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData, deleteData } from "../../states/reducers/position.reducer";
-import { PrimaryButton, DataTable } from "../../components";
+import { ROUTE, DATATABLE } from "@/constants";
+import { fetchPosition, deletePosition } from "@/states/actions";
+import { PrimaryButton, DataTable } from "@/components";
 
 function Position() {
   const dispatch = useDispatch();
@@ -15,11 +15,11 @@ function Position() {
   });
 
   const deleteById = async (id) => {
-    dispatch(deleteData({ id }));
+    dispatch(deletePosition({ id }));
   };
 
   const updateById = async (id) => {
-    navigate(`${id}/${CONST.ROUTE.EDIT}`);
+    navigate(`${id}/${ROUTE.EDIT}`);
   };
 
   const actions = [
@@ -27,10 +27,10 @@ function Position() {
     { title: "Delete", onClick: deleteById },
   ];
 
-  const { header, dataName } = CONST.DATATABLE.POSITION;
+  const { header, dataName } = DATATABLE.POSITION;
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchPosition());
   }, [data]);
 
   return (
@@ -38,7 +38,7 @@ function Position() {
       <PrimaryButton
         title={"Add"}
         onClick={() => {
-          navigate(CONST.ROUTE.ADD);
+          navigate(ROUTE.ADD);
         }}
       />
       <DataTable

@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import CONST from "../../../constants/index";
+import { ROUTE, DATATABLE } from "@/constants";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData } from "../../../states/reducers/personnel.reducer";
-import { PrimaryButton, DataTable } from "../../../components";
+import { fetchPersonnel } from "@/states/actions";
+import { PrimaryButton, DataTable } from "@/components";
 
 function Personnel() {
   const navigate = useNavigate();
@@ -14,15 +14,15 @@ function Personnel() {
   });
 
   const updateById = async (id) => {
-    navigate(`${id}/${CONST.ROUTE.EDIT}`);
+    navigate(`${id}/${ROUTE.EDIT}`);
   };
 
   const actions = [{ title: "Edit", onClick: updateById }];
 
-  const { header, dataName } = CONST.DATATABLE.PERSONNEL;
+  const { header, dataName } = DATATABLE.PERSONNEL;
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchPersonnel());
   }, []);
 
   return (
@@ -30,7 +30,7 @@ function Personnel() {
       <PrimaryButton
         title={"Add"}
         onClick={() => {
-          navigate(CONST.ROUTE.ADD);
+          navigate(ROUTE.ADD);
         }}
       />
       <DataTable

@@ -25,7 +25,7 @@ const update = async (req, res) => {
 const deleteById = async (req, res) => {
   const { id } = req.params;
   const data = await service.deleteById(id);
-  res.send({ data });
+  res.send({ data: [data] });
 };
 
 export { getAll, getById, add, update, deleteById };

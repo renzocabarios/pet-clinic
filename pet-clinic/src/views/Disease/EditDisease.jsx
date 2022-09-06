@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
-import api from "../../services/api.service";
-import CONST from "../../constants/index";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { updateData } from "../../states/reducers/disease.reducer";
-import { PrimaryButton, Card, FormInput } from "../../components";
+import { ROUTE } from "@/constants";
+import { updateDisease } from "@/states/actions";
+import { PrimaryButton, Card, FormInput } from "@/components";
 
 function EditDisease() {
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
   const params = useParams();
 
@@ -17,20 +15,9 @@ function EditDisease() {
     description: "",
   });
 
-  const get = async () => {
-    const {
-      data: { data },
-    } = await api.get(`${CONST.ROUTE.DISEASE}/${params.id}`);
-    setformdata(data[0]);
-  };
-
-  useEffect(() => {
-    get();
-  }, []);
-
   const submit = async () => {
-    dispatch(updateData({ id: params.id, body: formdata }));
-    navigate(`/${CONST.ROUTE.DISEASE}`);
+    dispatch(updateDisease({ id: params.id, body: formdata }));
+    navigate(`/${ROUTE.DISEASE}`);
   };
 
   const inputs = [

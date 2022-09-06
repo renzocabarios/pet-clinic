@@ -16,7 +16,7 @@ const add = async (req, res) => {
 
 const changePosition = async (req, res) => {
   const { id } = req.params;
-  const { password, position, ...rest } = req.body;
+  const { position } = req.body;
   const data = await service.update(id, { position });
   res.send({ data: [data] });
 };

@@ -1,28 +1,35 @@
 import { useRoutes } from "react-router-dom";
-import LoginUser from "../views/LoginUser";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import CONST from "../constants/index";
-import RegisterUser from "../views/RegisterUser";
-import Dashboard from "../Dashboard";
-import AnimalType from "../views/AnimalType/AnimalType";
-import AddAnimalType from "../views/AnimalType/AddAnimalType";
-import EditAnimalType from "../views/AnimalType/EditAnimalType";
-import Animal from "../views/Animal/Animal";
-import AddAnimal from "../views/Animal/AddAnimal";
-import EditAnimal from "../views/Animal/EditAnimal";
-import Disease from "../views/Disease/Disease";
-import AddDisease from "../views/Disease/AddDisease";
-import EditDisease from "../views/Disease/EditDisease";
-import User from "../views/User/User";
-import AddUser from "../views/User/AddUser";
-import Position from "../views/Position/Position";
-import AddPosition from "../views/Position/AddPosition";
-import EditPosition from "../views/Position/EditPosition";
-import Personnel from "../views/User/Personnel/Personnel";
-import AddPersonnel from "../views/User/Personnel/AddPersonnel";
-import EditPersonnel from "../views/User/Personnel/EditPersonnel";
+import { ROUTE } from "@/constants";
+import {
+  RegisterUser,
+  Dashboard,
+  Setting,
+  LoginUser,
+  AdoptAnimal,
+  ConfirmAdopt,
+  MyAnimal,
+  Personnel,
+  AddPersonnel,
+  EditPersonnel,
+  User,
+  AddUser,
+  AddPosition,
+  EditPosition,
+  Position,
+  Disease,
+  AddDisease,
+  EditDisease,
+  Animal,
+  AddAnimal,
+  EditAnimal,
+  AnimalType,
+  AddAnimalType,
+  EditAnimalType,
+  Adoption,
+} from "../views";
 
 function Router() {
   const location = useLocation();
@@ -33,94 +40,111 @@ function Router() {
   });
 
   useEffect(() => {
-    if (
-      location.pathname.split("/").includes(CONST.ROUTE.DASHBOARD) &&
-      !token
-    ) {
-      navigate(`/${CONST.ROUTE.LOGIN}`);
+    if (location.pathname.split("/").includes(ROUTE.DASHBOARD) && !token) {
+      navigate(`/${ROUTE.LOGIN}`);
     }
   }, [location]);
 
   return useRoutes([
     {
-      path: CONST.ROUTE.LOGIN,
+      path: ROUTE.LOGIN,
       element: <LoginUser />,
     },
     {
-      path: CONST.ROUTE.REGISTER,
+      path: ROUTE.REGISTER,
       element: <RegisterUser />,
     },
     {
-      path: `/${CONST.ROUTE.DASHBOARD}`,
+      path: ROUTE.ADOPT,
+      element: <AdoptAnimal />,
+    },
+    {
+      path: `/${ROUTE.ADOPT}/${ROUTE.CONFIRM}`,
+      element: <ConfirmAdopt />,
+    },
+    {
+      path: ROUTE.MY_ANIMAL,
+      element: <MyAnimal />,
+    },
+    {
+      path: `/${ROUTE.DASHBOARD}`,
       element: <Dashboard />,
       children: [
         {
-          path: CONST.ROUTE.ANIMAL_TYPE,
+          path: ROUTE.ADOPTION,
+          element: <Adoption />,
+        },
+        {
+          path: ROUTE.ANIMAL_TYPE,
           element: <AnimalType />,
         },
         {
-          path: `${CONST.ROUTE.ANIMAL_TYPE}/${CONST.ROUTE.ADD}`,
+          path: `${ROUTE.ANIMAL_TYPE}/${ROUTE.ADD}`,
           element: <AddAnimalType />,
         },
         {
-          path: `${CONST.ROUTE.ANIMAL_TYPE}/:id/${CONST.ROUTE.EDIT}`,
+          path: `${ROUTE.ANIMAL_TYPE}/:id/${ROUTE.EDIT}`,
           element: <EditAnimalType />,
         },
         {
-          path: CONST.ROUTE.ANIMAL,
+          path: ROUTE.ANIMAL,
           element: <Animal />,
         },
         {
-          path: `${CONST.ROUTE.ANIMAL}/${CONST.ROUTE.ADD}`,
+          path: `${ROUTE.ANIMAL}/${ROUTE.ADD}`,
           element: <AddAnimal />,
         },
         {
-          path: `${CONST.ROUTE.ANIMAL}/:id/${CONST.ROUTE.EDIT}`,
+          path: `${ROUTE.ANIMAL}/:id/${ROUTE.EDIT}`,
           element: <EditAnimal />,
         },
         {
-          path: CONST.ROUTE.DISEASE,
+          path: ROUTE.DISEASE,
           element: <Disease />,
         },
         {
-          path: `${CONST.ROUTE.DISEASE}/${CONST.ROUTE.ADD}`,
+          path: `${ROUTE.DISEASE}/${ROUTE.ADD}`,
           element: <AddDisease />,
         },
         {
-          path: `${CONST.ROUTE.DISEASE}/:id/${CONST.ROUTE.EDIT}`,
+          path: `${ROUTE.DISEASE}/:id/${ROUTE.EDIT}`,
           element: <EditDisease />,
         },
         {
-          path: CONST.ROUTE.USER,
+          path: ROUTE.USER,
           element: <User />,
         },
         {
-          path: `${CONST.ROUTE.USER}/${CONST.ROUTE.ADD}`,
+          path: `${ROUTE.USER}/${ROUTE.ADD}`,
           element: <AddUser />,
         },
         {
-          path: CONST.ROUTE.POSITION,
+          path: ROUTE.POSITION,
           element: <Position />,
         },
         {
-          path: `${CONST.ROUTE.POSITION}/${CONST.ROUTE.ADD}`,
+          path: `${ROUTE.POSITION}/${ROUTE.ADD}`,
           element: <AddPosition />,
         },
         {
-          path: `${CONST.ROUTE.POSITION}/:id/${CONST.ROUTE.EDIT}`,
+          path: `${ROUTE.POSITION}/:id/${ROUTE.EDIT}`,
           element: <EditPosition />,
         },
         {
-          path: CONST.ROUTE.PERSONNEL,
+          path: ROUTE.PERSONNEL,
           element: <Personnel />,
         },
         {
-          path: `${CONST.ROUTE.PERSONNEL}/${CONST.ROUTE.ADD}`,
+          path: `${ROUTE.PERSONNEL}/${ROUTE.ADD}`,
           element: <AddPersonnel />,
         },
         {
-          path: `${CONST.ROUTE.PERSONNEL}/:id/${CONST.ROUTE.EDIT}`,
+          path: `${ROUTE.PERSONNEL}/:id/${ROUTE.EDIT}`,
           element: <EditPersonnel />,
+        },
+        {
+          path: `${ROUTE.SETTING}`,
+          element: <Setting />,
         },
       ],
     },

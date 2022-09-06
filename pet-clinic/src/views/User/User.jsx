@@ -1,21 +1,24 @@
-import { useEffect, useState } from "react";
-import api from "../../services/api.service";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import CONST from "../../constants/index";
-import { PrimaryButton, DataTable } from "../../components";
+import { ROUTE, DATATABLE } from "@/constants";
+import { PrimaryButton, DataTable } from "@/components";
+import { fetchUser } from "@/states/actions";
+import { useSelector, useDispatch } from "react-redux";
 
 function User() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const [data, setdata] = useState([]);
+  const data = useSelector((state) => {
+    return state.userReducer.entries;
+  });
 
   const deleteById = async (id) => {
-    await api.deleteById(`${CONST.ROUTE.USER}/${id}`);
-    get();
+    dispatch(deleteUser({ id }));
   };
 
   const updateById = async (id) => {
-    navigate(`${id}/${CONST.ROUTE.EDIT}`);
+    navigate(`${id}/${ROUTE.EDIT}`);
   };
 
   const actions = [
@@ -23,25 +26,18 @@ function User() {
     { title: "Delete", onClick: deleteById },
   ];
 
-  const { header, dataName } = CONST.DATATABLE.USER;
-
-  const get = async () => {
-    const {
-      data: { data },
-    } = await api.get(CONST.ROUTE.USER);
-    setdata(data);
-  };
+  const { header, dataName } = DATATABLE.USER;
 
   useEffect(() => {
-    get();
-  }, []);
+    dispatch(fetchUser());
+  }, [data]);
 
   return (
     <>
       <PrimaryButton
         title={"Add"}
         onClick={() => {
-          navigate(CONST.ROUTE.ADD);
+          navigate(ROUTE.ADD);
         }}
       />
 

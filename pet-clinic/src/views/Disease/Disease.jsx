@@ -1,25 +1,25 @@
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import CONST from "../../constants/index";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData, deleteData } from "../../states/reducers/disease.reducer";
-import { PrimaryButton, DataTable } from "../../components";
+import { ROUTE, DATATABLE } from "@/constants";
+import { fetchDisease, deleteDisease } from "@/states/actions";
+import { PrimaryButton, DataTable } from "@/components";
 
 function Disease() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const data = useSelector((state) => {
     return state.diseaseReducer.entries;
   });
-  const dispatch = useDispatch();
-
-  const navigate = useNavigate();
 
   const deleteById = async (id) => {
-    dispatch(deleteData({ id }));
+    dispatch(deleteDisease({ id }));
   };
 
   const updateById = async (id) => {
-    navigate(`${id}/${CONST.ROUTE.EDIT}`);
+    navigate(`${id}/${ROUTE.EDIT}`);
   };
 
   const actions = [
@@ -27,10 +27,10 @@ function Disease() {
     { title: "Delete", onClick: deleteById },
   ];
 
-  const { header, dataName } = CONST.DATATABLE.DISEASE;
+  const { header, dataName } = DATATABLE.DISEASE;
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchDisease());
   }, []);
 
   return (
@@ -38,7 +38,7 @@ function Disease() {
       <PrimaryButton
         title={"Add"}
         onClick={() => {
-          navigate(CONST.ROUTE.ADD);
+          navigate(ROUTE.ADD);
         }}
       />
       <DataTable

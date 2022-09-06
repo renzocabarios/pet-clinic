@@ -1,4 +1,12 @@
-function FormInput({ name, title, onChange, defaultValue, type, value }) {
+function FormInput({
+  name,
+  title,
+  onChange,
+  defaultValue,
+  type,
+  value,
+  disabled = false,
+}) {
   return (
     <div className="flex flex-col">
       <label htmlFor={name}>{title}</label>
@@ -9,6 +17,7 @@ function FormInput({ name, title, onChange, defaultValue, type, value }) {
         defaultValue={defaultValue ?? ""}
         onChange={onChange}
         value={value}
+        disabled={disabled}
       />
     </div>
   );

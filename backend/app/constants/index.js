@@ -5,9 +5,11 @@ const CONST = {
     USER: {
       DEFAULT: "User",
       PERSONNEL: "Personnel",
+      ADOPTER: "Adopter",
     },
     DISEASE: "Disease",
     POSITION: "Position",
+    ADOPTION: "Adoption",
   },
 };
 
