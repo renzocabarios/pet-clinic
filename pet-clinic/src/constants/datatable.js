@@ -3,6 +3,10 @@ export default {
     header: ["First Name", "Last Name", "Email", "Position"],
     dataName: ["firstName", "lastName", "email", "position.name"],
   },
+  ADOPTER: {
+    header: ["First Name", "Last Name", "Email"],
+    dataName: ["firstName", "lastName", "email"],
+  },
   USER: {
     header: ["First Name", "Last Name", "Email", "Type"],
     dataName: ["firstName", "lastName", "email", "type"],
