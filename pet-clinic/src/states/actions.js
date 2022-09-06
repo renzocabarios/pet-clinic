@@ -22,9 +22,15 @@ import {
   fetchUser,
   deleteUser,
   fetchAdoption,
+  fetchAdopter,
+  updateAdopter,
+  addAdopter,
 } from "./reducers";
 
 export {
+  fetchAdopter,
+  updateAdopter,
+  addAdopter,
   fetchAdoption,
   fetchAnimalType,
   deleteAnimalType,
