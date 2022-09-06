@@ -26,7 +26,7 @@ function DataTable({ header, data, dataName, actions }) {
               >
                 {dataName.map((name) => {
                   return (
-                    <td className="p-3 text-white" key={i[name]}>
+                    <td className="p-3 text-white" key={name}>
                       {parser.parse(i, parser.stringToArray(name))}
                     </td>
                   );
