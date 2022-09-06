@@ -1,14 +1,11 @@
 function parse(obj, dataKeys) {
-  let tempData = "";
-  Object.entries(obj).every(([key, value]) => {
-    if (dataKeys[0] == key && dataKeys.length <= 1) {
-      tempData = value;
-      return false;
-    }
+  return dataKeys.length > 1 ? denestObject(obj, dataKeys) : obj[dataKeys[0]];
+}
 
-    return true;
-  });
-  return tempData;
+function denestObject(obj, dataKeys) {
+  let tempObj = obj;
+  for (const key of dataKeys) tempObj = tempObj[key];
+  return tempObj;
 }
 
 function stringToArray(string, splitter = ".") {
