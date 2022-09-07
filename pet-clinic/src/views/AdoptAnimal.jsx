@@ -1,12 +1,17 @@
 import { PrimaryButton, Card, NavBar } from "@/components";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAnimal } from "@/states/actions";
+import { fetchAnimal, addAdoption } from "@/states/actions";
 import { useEffect } from "react";
 
 function AdoptAnimal() {
   const dispatch = useDispatch();
+
   const data = useSelector((state) => {
     return state.animalReducer.entries;
+  });
+
+  const user = useSelector((state) => {
+    return state.authReducer.user;
   });
 
   useEffect(() => {
@@ -14,7 +19,7 @@ function AdoptAnimal() {
   }, []);
 
   return (
-    <div className="bg-gray-600">
+    <div className="bg-gray-600 min-h-screen">
       <NavBar />
       <div className="adopt-template gap-12 p-5">
         {data.map((e) => {
@@ -25,7 +30,16 @@ function AdoptAnimal() {
                 <h1>Age: {e.age}</h1>
                 <h1>Breed: {e.breed}</h1>
                 <h1>Sex: {e.sex}</h1>
-                <PrimaryButton title="Adopt" />
+                <PrimaryButton
+                  title="Request Adopt"
+                  onClick={() => {
+                    dispatch(
+                      addAdoption({
+                        body: { animal: e._id, adopter: user._id },
+                      })
+                    );
+                  }}
+                />
               </div>
             </Card>
           );

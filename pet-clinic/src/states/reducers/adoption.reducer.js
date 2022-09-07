@@ -12,6 +12,22 @@ const fetchAdoption = createAsyncThunk("adoption/fetchAdoption", async () => {
     .then((res) => res.data);
 });
 
+const addAdoption = createAsyncThunk("adoption/addAdoption", async (props) => {
+  return await api
+    .post(`${ROUTE.ADOPTION}`, props.body)
+    .then((res) => res.data);
+});
+
+const updateAdoptionStatus = createAsyncThunk(
+  "adoption/updateAdoptionStatus",
+  async (props) => {
+    const { id, status } = props;
+    return await api
+      .update(`${ROUTE.ADOPTION}/${id}/status`, status)
+      .then((res) => res.data);
+  }
+);
+
 const slice = createSlice({
   name: SLICE.ADOPTION,
   initialState,
@@ -24,9 +40,13 @@ const slice = createSlice({
     builder.addCase(fetchAdoption.rejected, (state, action) => {
       state.entries = action.payload.data;
     });
+
+    builder.addCase(addAdoption.fulfilled, (state, action) => {
+      state.entries.push(action.payload.data);
+    });
   },
 });
 
 const { reducer } = slice;
-export { fetchAdoption };
+export { fetchAdoption, updateAdoptionStatus, addAdoption };
 export default reducer;

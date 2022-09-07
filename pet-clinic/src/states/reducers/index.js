@@ -36,7 +36,12 @@ import animalReducer, {
 
 import userReducer, { fetchUser, deleteUser } from "./user.reducer";
 
-import adoptionReducer, { fetchAdoption } from "./adoption.reducer";
+import adoptionReducer, {
+  fetchAdoption,
+  updateAdoptionStatus,
+  addAdoption,
+} from "./adoption.reducer";
+
 import adopterReducer, {
   fetchAdopter,
   updateAdopter,
@@ -53,9 +58,11 @@ export {
   animalReducer,
   userReducer,
   adoptionReducer,
+  addAdoption,
   fetchAdopter,
   updateAdopter,
   addAdopter,
+  updateAdoptionStatus,
   fetchAnimalType,
   deleteAnimalType,
   updateAnimalType,

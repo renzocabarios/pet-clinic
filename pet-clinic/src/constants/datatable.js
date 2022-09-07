@@ -28,12 +28,12 @@ export default {
     dataName: ["name", "breed", "age", "sex"],
   },
   ADOPTION: {
-    header: ["Animal", "Adopter First Name", "Adopter Last Name", "Approved"],
+    header: ["Animal", "Adopter First Name", "Adopter Last Name", "Status"],
     dataName: [
       "animal.name",
       "adopter.firstName",
       "adopter.lastName",
-      "approved",
+      "status",
     ],
   },
 };

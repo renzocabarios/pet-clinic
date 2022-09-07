@@ -37,12 +37,12 @@ function Router() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const token = useSelector((state) => {
-    return state.authReducer.token;
+  const auth = useSelector((state) => {
+    return state.authReducer;
   });
 
   useEffect(() => {
-    if (location.pathname.split("/").includes(ROUTE.DASHBOARD) && !token) {
+    if (location.pathname.split("/").includes(ROUTE.DASHBOARD) && !auth.token) {
       navigate(`/${ROUTE.LOGIN}`);
     }
   }, [location]);
