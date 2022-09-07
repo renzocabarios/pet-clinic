@@ -10,7 +10,7 @@ function LoginUser() {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => {
-    return state.authReducer.token;
+    return state.authReducer;
   });
 
   const [formdata, setformdata] = useState({
@@ -19,7 +19,10 @@ function LoginUser() {
   });
 
   useEffect(() => {
-    if (data) navigate(`/${ROUTE.DASHBOARD}`);
+    if (data.token)
+      navigate(
+        data.user.type == "Adopter" ? `/${ROUTE.ADOPT}` : `/${ROUTE.DASHBOARD}`
+      );
   }, [data]);
 
   const submit = async () => {
