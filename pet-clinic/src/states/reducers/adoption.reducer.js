@@ -18,6 +18,16 @@ const addAdoption = createAsyncThunk("adoption/addAdoption", async (props) => {
     .then((res) => res.data);
 });
 
+const updateAdoptionStatus = createAsyncThunk(
+  "adoption/updateAdoptionStatus",
+  async (props) => {
+    const { id, status } = props;
+    return await api
+      .update(`${ROUTE.ADOPTION}/${id}/status`, status)
+      .then((res) => res.data);
+  }
+);
+
 const slice = createSlice({
   name: SLICE.ADOPTION,
   initialState,
