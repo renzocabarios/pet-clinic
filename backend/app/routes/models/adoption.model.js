@@ -21,9 +21,10 @@ const schema = mongoose.Schema(
       ref: CONST.MODEL.ANIMAL,
       required: [true, "Animal is required."],
     },
-    approved: {
-      type: Boolean,
-      default: false,
+    status: {
+      type: String,
+      enum: ["Pending", "Approved", "Rejected"],
+      default: "Pending",
     },
     deleted: {
       type: Boolean,

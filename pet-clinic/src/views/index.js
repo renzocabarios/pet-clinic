@@ -5,7 +5,15 @@ import Dashboard from "./Dashboard";
 import AdoptAnimal from "./AdoptAnimal";
 import ConfirmAdopt from "./ConfirmAdopt";
 import MyAnimal from "./MyAnimal";
-import { AddUser, User, AddPersonnel, EditPersonnel, Personnel } from "./User";
+import {
+  AddUser,
+  User,
+  AddPersonnel,
+  EditPersonnel,
+  Personnel,
+  Adopter,
+  AddAdopter,
+} from "./User";
 import { AddPosition, EditPosition, Position } from "./Position";
 import { AddDisease, EditDisease, Disease } from "./Disease";
 import { AddAnimalType, EditAnimalType, AnimalType } from "./AnimalType";
@@ -13,6 +21,8 @@ import { AddAnimal, EditAnimal, Animal } from "./Animal";
 import { Adoption } from "./Adoption";
 
 export {
+  AddAdopter,
+  Adopter,
   Adoption,
   LoginUser,
   RegisterUser,

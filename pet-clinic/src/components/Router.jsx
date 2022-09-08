@@ -29,18 +29,20 @@ import {
   AddAnimalType,
   EditAnimalType,
   Adoption,
+  Adopter,
+  AddAdopter,
 } from "../views";
 
 function Router() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const token = useSelector((state) => {
-    return state.authReducer.token;
+  const auth = useSelector((state) => {
+    return state.authReducer;
   });
 
   useEffect(() => {
-    if (location.pathname.split("/").includes(ROUTE.DASHBOARD) && !token) {
+    if (location.pathname.split("/").includes(ROUTE.DASHBOARD) && !auth.token) {
       navigate(`/${ROUTE.LOGIN}`);
     }
   }, [location]);
@@ -70,6 +72,14 @@ function Router() {
       path: `/${ROUTE.DASHBOARD}`,
       element: <Dashboard />,
       children: [
+        {
+          path: `${ROUTE.ADOPTER}/${ROUTE.ADD}`,
+          element: <AddAdopter />,
+        },
+        {
+          path: ROUTE.ADOPTER,
+          element: <Adopter />,
+        },
         {
           path: ROUTE.ADOPTION,
           element: <Adoption />,

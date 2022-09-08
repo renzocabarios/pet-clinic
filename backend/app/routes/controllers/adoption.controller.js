@@ -17,9 +17,10 @@ const add = async (req, res) => {
   res.send({ data });
 };
 
-const approve = async (req, res) => {
+const updateStatus = async (req, res) => {
   const { id } = req.params;
-  const data = await service.update(id, { approved: true });
+  const { status } = req.body;
+  const data = await service.update(id, { status });
   await adopter.addAnimal(data.adopter, data.animal);
   res.send({ data });
 };
@@ -30,4 +31,4 @@ const deleteById = async (req, res) => {
   res.send({ data });
 };
 
-export { getAll, getById, add, approve, deleteById };
+export { getAll, getById, add, updateStatus, deleteById };

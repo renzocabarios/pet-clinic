@@ -8,10 +8,12 @@ import {
   animalReducer,
   userReducer,
   adoptionReducer,
+  adopterReducer,
 } from "./reducers";
 
 export const store = configureStore({
   reducer: {
+    adopterReducer,
     diseaseReducer,
     authReducer,
     positionReducer,

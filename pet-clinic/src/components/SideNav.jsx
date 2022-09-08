@@ -7,6 +7,7 @@ function Sidenav() {
   const links = [
     { name: "User", route: `${ROUTE.USER}` },
     { name: "Personnel", route: `${ROUTE.PERSONNEL}` },
+    { name: "Adopter", route: `${ROUTE.ADOPTER}` },
     { name: "Animal Type", route: `${ROUTE.ANIMAL_TYPE}` },
     { name: "Animal", route: `${ROUTE.ANIMAL}` },
     { name: "Disease", route: `${ROUTE.DISEASE}` },

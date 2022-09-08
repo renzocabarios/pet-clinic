@@ -3,6 +3,10 @@ export default {
     header: ["First Name", "Last Name", "Email", "Position"],
     dataName: ["firstName", "lastName", "email", "position.name"],
   },
+  ADOPTER: {
+    header: ["First Name", "Last Name", "Email"],
+    dataName: ["firstName", "lastName", "email"],
+  },
   USER: {
     header: ["First Name", "Last Name", "Email", "Type"],
     dataName: ["firstName", "lastName", "email", "type"],
@@ -24,12 +28,12 @@ export default {
     dataName: ["name", "breed", "age", "sex"],
   },
   ADOPTION: {
-    header: ["Animal", "Adopter First Name", "Adopter Last Name", "Approved"],
+    header: ["Animal", "Adopter First Name", "Adopter Last Name", "Status"],
     dataName: [
       "animal.name",
       "adopter.firstName",
       "adopter.lastName",
-      "approved",
+      "status",
     ],
   },
 };
