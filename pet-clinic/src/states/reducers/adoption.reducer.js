@@ -1,29 +1,35 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { api } from "@/services";
-import { ROUTE, SLICE } from "@/constants";
+import { ROUTE, SLICE, EVENT } from "@/constants";
 
 const initialState = {
   entries: [],
 };
 
-const fetchAdoption = createAsyncThunk("adoption/fetchAdoption", async () => {
-  return await api
-    .get(`${ROUTE.ADOPTION}?populate=adopter animal`)
-    .then((res) => res.data);
-});
+const fetchAdoption = createAsyncThunk(
+  `${SLICE.ADOPTION}/${EVENT.FETCH_ADOPTION}`,
+  async () => {
+    return await api
+      .get(`${ROUTE.ADOPTION}?populate=adopter animal`)
+      .then((res) => res.data);
+  }
+);
 
-const addAdoption = createAsyncThunk("adoption/addAdoption", async (props) => {
-  return await api
-    .post(`${ROUTE.ADOPTION}`, props.body)
-    .then((res) => res.data);
-});
+const addAdoption = createAsyncThunk(
+  `${SLICE.ADOPTION}/${EVENT.ADD_ADOPTION}`,
+  async (props) => {
+    return await api
+      .post(`${ROUTE.ADOPTION}`, props.body)
+      .then((res) => res.data);
+  }
+);
 
 const updateAdoptionStatus = createAsyncThunk(
-  "adoption/updateAdoptionStatus",
+  `${SLICE.ADOPTION}/${EVENT.UPDATE_ADOPTION_STATUS}`,
   async (props) => {
     const { id, status } = props;
     return await api
-      .update(`${ROUTE.ADOPTION}/${id}/status`, status)
+      .update(`${ROUTE.ADOPTION}/${id}/${ROUTE.STATUS}`, { status })
       .then((res) => res.data);
   }
 );
