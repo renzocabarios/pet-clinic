@@ -17,4 +17,5 @@ export default {
   MY_ANIMAL: "my-animal",
   ADOPTION: "adoption",
   ADOPTER: "adopter",
+  STATUS: "status",
 };
