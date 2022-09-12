@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "@/constants";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "@/states/actions";
 
 function Sidenav() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const links = [
     { name: "User", route: `${ROUTE.USER}` },
@@ -15,6 +18,10 @@ function Sidenav() {
     { name: "Adoption", route: `${ROUTE.ADOPTION}` },
     { name: "Setting", route: `${ROUTE.SETTING}` },
   ];
+
+  const submit = () => {
+    dispatch(logoutUser());
+  };
 
   return (
     <div className="sidenav shadow bg-gray-900">
@@ -37,7 +44,10 @@ function Sidenav() {
         })}
       </div>
       <div className="w-full flex justify-center items-center text-2xl text-white ">
-        <h1 className="text-2xl p-5 hover:p-8 transition-all rounded-md">
+        <h1
+          className="text-2xl p-5 hover:p-8 transition-all rounded-md"
+          onClick={submit}
+        >
           Log out
         </h1>
       </div>
