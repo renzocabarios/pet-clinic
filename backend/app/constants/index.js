@@ -1,16 +1,4 @@
-const CONST = {
-  MODEL: {
-    ANIMAL: "Animal",
-    ANIMAL_TYPE: "AnimalType",
-    USER: {
-      DEFAULT: "User",
-      PERSONNEL: "Personnel",
-      ADOPTER: "Adopter",
-    },
-    DISEASE: "Disease",
-    POSITION: "Position",
-    ADOPTION: "Adoption",
-  },
-};
+import MODEL from "./model.js";
+import OPEN_ROUTES from "./open-routes.js";
 
-export default CONST;
+export { MODEL, OPEN_ROUTES };
