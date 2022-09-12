@@ -45,7 +45,7 @@ function Router() {
     if (location.pathname.split("/").includes(ROUTE.DASHBOARD) && !auth.token) {
       navigate(`/${ROUTE.LOGIN}`);
     }
-  }, [location]);
+  }, [auth]);
 
   return useRoutes([
     {

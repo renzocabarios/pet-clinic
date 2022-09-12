@@ -27,9 +27,11 @@ import {
   updateAdopter,
   addAdopter,
   addAdoption,
+  logoutUser,
 } from "./reducers";
 
 export {
+  logoutUser,
   addAdoption,
   fetchAdopter,
   updateAdopter,
