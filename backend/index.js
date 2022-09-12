@@ -11,6 +11,7 @@ import diseaseRoute from "./app/routes/disease.route.js";
 import positionRoute from "./app/routes/position.route.js";
 import personnelRoute from "./app/routes/personnel.route.js";
 import adopterRoute from "./app/routes/adopter.route.js";
+import { auth } from "./app/middleware/auth.middleware.js";
 import adoptionRoute from "./app/routes/adoption.route.js";
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(bodyParser.json(), bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 //routes
+app.use(auth);
 app.use("/api/animal-type", animalTypeRoute);
 app.use("/api/animal", animalRoute);
 app.use("/api/user", userRoute);
