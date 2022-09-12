@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import paginate from "mongoose-paginate";
-import CONST from "../../constants/index.js";
+import { MODEL } from "../../constants/index.js";
 
 const options = {
   timestamps: {
@@ -13,12 +13,12 @@ const schema = mongoose.Schema(
   {
     adopter: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: CONST.MODEL.USER.ADOPTER,
+      ref: MODEL.USER.ADOPTER,
       required: [true, "Adopter is required."],
     },
     animal: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: CONST.MODEL.ANIMAL,
+      ref: MODEL.ANIMAL,
       required: [true, "Animal is required."],
     },
     status: {
@@ -36,4 +36,4 @@ const schema = mongoose.Schema(
 
 schema.plugin(paginate);
 
-export default mongoose.model(CONST.MODEL.ADOPTION, schema);
+export default mongoose.model(MODEL.ADOPTION, schema);

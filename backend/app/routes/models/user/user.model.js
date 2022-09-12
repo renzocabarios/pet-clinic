@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import paginate from "mongoose-paginate";
-import CONST from "../../../constants/index.js";
+import { MODEL } from "../../../constants/index.js";
 
 const options = {
   timestamps: {
@@ -47,4 +47,4 @@ const schema = mongoose.Schema(
 
 schema.plugin(paginate);
 
-export default mongoose.model(CONST.MODEL.USER.DEFAULT, schema);
+export default mongoose.model(MODEL.USER.DEFAULT, schema);
