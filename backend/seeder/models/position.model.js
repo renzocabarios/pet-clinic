@@ -31,4 +31,4 @@ const schema = mongoose.Schema(
 
 schema.plugin(paginate);
 
-export default mongoose.model(CONST.MODEL.POSITION, schema);
+export default mongoose.model(MODEL.POSITION, schema);

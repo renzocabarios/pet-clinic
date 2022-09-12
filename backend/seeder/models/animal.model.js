@@ -33,7 +33,7 @@ const schema = mongoose.Schema(
     },
     animalType: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: CONST.MODEL.ANIMAL_TYPE,
+      ref: MODEL.ANIMAL_TYPE,
       required: [true, "Animal Type is required."],
     },
     deleted: {
@@ -46,4 +46,4 @@ const schema = mongoose.Schema(
 
 schema.plugin(paginate);
 
-export default mongoose.model(CONST.MODEL.ANIMAL, schema);
+export default mongoose.model(MODEL.ANIMAL, schema);

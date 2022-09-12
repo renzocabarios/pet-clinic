@@ -31,4 +31,4 @@ const schema = mongoose.Schema(
 
 schema.plugin(paginate);
 
-export default mongoose.model(CONST.MODEL.DISEASE, schema);
+export default mongoose.model(MODEL.DISEASE, schema);
