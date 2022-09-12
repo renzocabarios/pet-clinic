@@ -19,9 +19,9 @@ const app = express();
 // middlewares
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: false }));
 app.use(cors());
+app.use(auth);
 
 //routes
-app.use(auth);
 app.use("/api/animal-type", animalTypeRoute);
 app.use("/api/animal", animalRoute);
 app.use("/api/user", userRoute);
