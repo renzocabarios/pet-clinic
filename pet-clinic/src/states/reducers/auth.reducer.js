@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { api } from "@/services";
-import { ROUTE, SLICE } from "@/constants";
+import { ROUTE, SLICE, EVENT } from "@/constants";
 
 const initialState = {
   user: {
@@ -16,16 +16,32 @@ const initialState = {
   token: "",
 };
 
-const authUser = createAsyncThunk("auth/authUser", async (props) => {
-  return await api
-    .post(`${ROUTE.USER}/${ROUTE.AUTH}`, props.body)
-    .then((res) => res.data);
-});
+const authUser = createAsyncThunk(
+  `${SLICE.ADOPTION}/${EVENT.AUTH_USER}`,
+  async (props) => {
+    return await api
+      .post(`${ROUTE.USER}/${ROUTE.AUTH}`, props.body)
+      .then((res) => res.data);
+  }
+);
 
 const slice = createSlice({
   name: SLICE.AUTH,
   initialState,
-  reducers: {},
+  reducers: {
+    logoutUser(state) {
+      state.user = {
+        _id: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        type: "",
+        DateCreated: "",
+        DateUpdated: "",
+      };
+      state.token = "";
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(authUser.fulfilled, (state, action) => {
       const { status, data, token } = action.payload;
@@ -40,6 +56,7 @@ const slice = createSlice({
   },
 });
 
-const { reducer } = slice;
-export { authUser };
+const { reducer, actions } = slice;
+const { logoutUser } = actions;
+export { authUser, logoutUser };
 export default reducer;

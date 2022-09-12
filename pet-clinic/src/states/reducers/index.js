@@ -5,7 +5,7 @@ import diseaseReducer, {
   addDisease,
 } from "./disease.reducer";
 
-import authReducer, { authUser } from "./auth.reducer";
+import authReducer, { authUser, logoutUser } from "./auth.reducer";
 
 import positionReducer, {
   fetchPosition,
@@ -58,6 +58,7 @@ export {
   animalReducer,
   userReducer,
   adoptionReducer,
+  logoutUser,
   addAdoption,
   fetchAdopter,
   updateAdopter,
