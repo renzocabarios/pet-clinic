@@ -25,3 +25,5 @@
 - As an admin, I should be able to update a personnel's position
 
 - As an admin, I should be able to delete a user
+
+- As an admin, I should be able to logout my account
