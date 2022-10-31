@@ -5,23 +5,29 @@ import Dashboard from "./Dashboard";
 import AdoptAnimal from "./AdoptAnimal";
 import ConfirmAdopt from "./ConfirmAdopt";
 import MyAnimal from "./MyAnimal";
-import {
-  AddUser,
-  User,
-  AddPersonnel,
-  EditPersonnel,
-  Personnel,
-  Adopter,
-  AddAdopter,
-} from "./User";
-import { AddPosition, EditPosition, Position } from "./Position";
-import { AddDisease, EditDisease, Disease } from "./Disease";
-import { AddAnimalType, EditAnimalType, AnimalType } from "./AnimalType";
-import { AddAnimal, EditAnimal, Animal } from "./Animal";
-import { Adoption } from "./Adoption";
+import UserAdd from "./UserAdd";
+import User from "./User";
+import AdopterAdd from "./AdopterAdd";
+import Adopter from "./Adopter";
+import PersonnelAdd from "./PersonnelAdd";
+import Personnel from "./Personnel";
+import PersonnelEdit from "./PersonnelEdit";
+import PositionAdd from "./PositionAdd";
+import Position from "./Position";
+import PositionEdit from "./PositionEdit";
+import AnimalAdd from "./AnimalAdd";
+import Animal from "./Animal";
+import AnimalEdit from "./AnimalEdit";
+import AnimalTypeAdd from "./AnimalTypeAdd";
+import AnimalType from "./AnimalType";
+import AnimalTypeEdit from "./AnimalTypeEdit";
+import DiseaseAdd from "./DiseaseAdd";
+import Disease from "./Disease";
+import DiseaseEdit from "./DiseaseEdit";
+import Adoption from "./Adoption";
 
 export {
-  AddAdopter,
+  AdopterAdd,
   Adopter,
   Adoption,
   LoginUser,
@@ -31,21 +37,21 @@ export {
   AdoptAnimal,
   ConfirmAdopt,
   MyAnimal,
-  AddUser,
+  UserAdd,
   User,
-  AddPersonnel,
-  EditPersonnel,
+  PersonnelAdd,
+  PersonnelEdit,
   Personnel,
-  AddPosition,
-  EditPosition,
+  PositionAdd,
+  PositionEdit,
   Position,
-  AddDisease,
-  EditDisease,
+  DiseaseAdd,
+  DiseaseEdit,
   Disease,
-  AddAnimalType,
-  EditAnimalType,
+  AnimalTypeAdd,
+  AnimalTypeEdit,
   AnimalType,
-  AddAnimal,
-  EditAnimal,
+  AnimalAdd,
+  AnimalEdit,
   Animal,
 };

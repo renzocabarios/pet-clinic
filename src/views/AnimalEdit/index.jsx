@@ -5,7 +5,7 @@ import { ROUTE } from "@/constants";
 import { fetchAnimalType, updateAnimal } from "@/states/actions";
 import { PrimaryButton, Card, FormInput } from "@/components";
 
-function EditAnimal() {
+function AnimalEdit() {
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
@@ -149,4 +149,4 @@ function EditAnimal() {
   );
 }
 
-export default EditAnimal;
+export default AnimalEdit;

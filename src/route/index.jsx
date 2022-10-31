@@ -12,25 +12,25 @@ import {
   ConfirmAdopt,
   MyAnimal,
   Personnel,
-  AddPersonnel,
-  EditPersonnel,
+  PersonnelAdd,
+  PersonnelEdit,
   User,
-  AddUser,
-  AddPosition,
-  EditPosition,
+  UserAdd,
+  PositionAdd,
+  PositionEdit,
   Position,
   Disease,
-  AddDisease,
-  EditDisease,
+  DiseaseAdd,
+  DiseaseEdit,
   Animal,
-  AddAnimal,
-  EditAnimal,
+  AnimalAdd,
+  AnimalEdit,
   AnimalType,
-  AddAnimalType,
-  EditAnimalType,
+  AnimalTypeAdd,
+  AnimalTypeEdit,
   Adoption,
   Adopter,
-  AddAdopter,
+  AdopterAdd,
 } from "../views";
 
 function Router() {
@@ -63,7 +63,7 @@ function Router() {
       children: [
         {
           path: `${ROUTE.ADOPTER}/${ROUTE.ADD}`,
-          element: <AddAdopter />,
+          element: <AdopterAdd />,
         },
         {
           path: ROUTE.ADOPTER,
@@ -79,11 +79,11 @@ function Router() {
         },
         {
           path: `${ROUTE.ANIMAL_TYPE}/${ROUTE.ADD}`,
-          element: <AddAnimalType />,
+          element: <AnimalTypeAdd />,
         },
         {
           path: `${ROUTE.ANIMAL_TYPE}/:id/${ROUTE.EDIT}`,
-          element: <EditAnimalType />,
+          element: <AnimalTypeEdit />,
         },
         {
           path: ROUTE.ANIMAL,
@@ -91,11 +91,11 @@ function Router() {
         },
         {
           path: `${ROUTE.ANIMAL}/${ROUTE.ADD}`,
-          element: <AddAnimal />,
+          element: <AnimalAdd />,
         },
         {
           path: `${ROUTE.ANIMAL}/:id/${ROUTE.EDIT}`,
-          element: <EditAnimal />,
+          element: <AnimalEdit />,
         },
         {
           path: ROUTE.DISEASE,
@@ -103,11 +103,12 @@ function Router() {
         },
         {
           path: `${ROUTE.DISEASE}/${ROUTE.ADD}`,
-          element: <AddDisease />,
+          element: <DiseaseAdd />,
         },
         {
+          
           path: `${ROUTE.DISEASE}/:id/${ROUTE.EDIT}`,
-          element: <EditDisease />,
+          element: <DiseaseEdit />,
         },
         {
           path: ROUTE.USER,
@@ -115,7 +116,7 @@ function Router() {
         },
         {
           path: `${ROUTE.USER}/${ROUTE.ADD}`,
-          element: <AddUser />,
+          element: <UserAdd />,
         },
         {
           path: ROUTE.POSITION,
@@ -123,11 +124,11 @@ function Router() {
         },
         {
           path: `${ROUTE.POSITION}/${ROUTE.ADD}`,
-          element: <AddPosition />,
+          element: <PositionAdd />,
         },
         {
           path: `${ROUTE.POSITION}/:id/${ROUTE.EDIT}`,
-          element: <EditPosition />,
+          element: <PositionEdit />,
         },
         {
           path: ROUTE.PERSONNEL,
@@ -135,11 +136,11 @@ function Router() {
         },
         {
           path: `${ROUTE.PERSONNEL}/${ROUTE.ADD}`,
-          element: <AddPersonnel />,
+          element: <PersonnelAdd />,
         },
         {
           path: `${ROUTE.PERSONNEL}/:id/${ROUTE.EDIT}`,
-          element: <EditPersonnel />,
+          element: <PersonnelEdit />,
         },
         {
           path: `${ROUTE.SETTING}`,

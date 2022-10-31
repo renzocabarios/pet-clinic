@@ -5,7 +5,7 @@ import { ROUTE } from "@/constants";
 import { addPosition } from "@/states/actions";
 import { PrimaryButton, FormInput, Card } from "@/components";
 
-function AddPosition() {
+function PositionAdd() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -64,4 +64,4 @@ function AddPosition() {
   );
 }
 
-export default AddPosition;
+export default PositionAdd;

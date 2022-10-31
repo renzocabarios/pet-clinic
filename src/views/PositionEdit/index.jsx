@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addAnimalType } from "@/states/actions";
-import { PrimaryButton, Card, FormInput } from "@/components";
 import { ROUTE } from "@/constants";
+import { updatePosition } from "@/states/actions";
+import { PrimaryButton, FormInput, Card } from "@/components";
 
-function AddAnimalType() {
-  const navigate = useNavigate();
+function PositionEdit() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const params = useParams();
 
   const [formdata, setformdata] = useState({
     name: "",
@@ -15,14 +16,15 @@ function AddAnimalType() {
   });
 
   const submit = async () => {
-    dispatch(addAnimalType({ body: formdata }));
-    navigate(`/${ROUTE.DASHBOARD}/${ROUTE.ANIMAL_TYPE}`);
+    dispatch(updatePosition({ id: params.id, body: formdata }));
+    navigate(`/${ROUTE.DASHBOARD}/${ROUTE.POSITION}`);
   };
 
   const inputs = [
     {
       name: "name",
       title: "Name",
+      defaultValue: formdata.name,
       onChange: (e) => {
         setformdata((prevState) => ({
           ...prevState,
@@ -33,6 +35,7 @@ function AddAnimalType() {
     {
       name: "description",
       title: "Description",
+      defaultValue: formdata.description,
       onChange: (e) => {
         setformdata((prevState) => ({
           ...prevState,
@@ -46,22 +49,23 @@ function AddAnimalType() {
     <div className="h-full w-full flex justify-center items-center">
       <Card>
         <div className="flex flex-col gap-3 items-center text-white">
-          <h1 className="font-bold text-3xl">Add Animal Type</h1>
+          <h1 className="font-bold text-3xl">Edit Position</h1>
           {inputs.map((i) => {
             return (
               <FormInput
                 name={i.name}
                 title={i.title}
                 onChange={i.onChange}
+                defaultValue={i.defaultValue}
                 key={i.name}
               />
             );
           })}
-          <PrimaryButton title="Add" onClick={submit} />
+          <PrimaryButton title="Update" onClick={submit} />
         </div>
       </Card>
     </div>
   );
 }
 
-export default AddAnimalType;
+export default PositionEdit;

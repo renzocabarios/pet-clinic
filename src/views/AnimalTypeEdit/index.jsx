@@ -5,7 +5,7 @@ import { ROUTE } from "@/constants";
 import { updateAnimalType } from "@/states/actions";
 import { useDispatch } from "react-redux";
 
-function EditAnimalType() {
+function AnimalTypeEdit() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const params = useParams();
@@ -66,4 +66,4 @@ function EditAnimalType() {
   );
 }
 
-export default EditAnimalType;
+export default AnimalTypeEdit;

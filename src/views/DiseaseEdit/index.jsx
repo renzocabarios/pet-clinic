@@ -5,7 +5,7 @@ import { PrimaryButton, Card, FormInput } from "@/components";
 import { ROUTE } from "@/constants";
 import { addDisease } from "@/states/actions";
 
-function AddDisease() {
+function DiseaseEdit() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -64,4 +64,4 @@ function AddDisease() {
   );
 }
 
-export default AddDisease;
+export default DiseaseEdit;

@@ -5,7 +5,7 @@ import { fetchAnimalType, addAnimal } from "@/states/actions";
 import { PrimaryButton, Card, InputSelect, FormInput } from "@/components";
 import { ROUTE } from "@/constants";
 
-function AddAnimal() {
+function AnimalAdd() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -118,4 +118,4 @@ function AddAnimal() {
   );
 }
 
-export default AddAnimal;
+export default AnimalAdd;
