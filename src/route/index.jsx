@@ -34,18 +34,7 @@ import {
 } from "../views";
 
 function Router() {
-  const location = useLocation();
-  const navigate = useNavigate();
 
-  const auth = useSelector((state) => {
-    return state.authReducer;
-  });
-
-  useEffect(() => {
-    if (location.pathname.split("/").includes(ROUTE.DASHBOARD) && !auth.token) {
-      navigate(`/${ROUTE.LOGIN}`);
-    }
-  }, [auth]);
 
   return useRoutes([
     {

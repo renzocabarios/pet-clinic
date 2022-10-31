@@ -5,7 +5,6 @@ import InputSelect from "./InputSelect";
 import NavBar from "./NavBar";
 import PrimaryButton from "./PrimaryButton";
 import PrimaryForm from "./PrimaryForm";
-import Router from "./Router";
 import SideNav from "./SideNav";
 
 export {
@@ -16,6 +15,5 @@ export {
   NavBar,
   PrimaryButton,
   PrimaryForm,
-  Router,
   SideNav,
 };

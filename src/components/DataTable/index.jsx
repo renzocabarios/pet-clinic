@@ -1,4 +1,4 @@
-import PrimaryButton from "./PrimaryButton";
+import PrimaryButton from "../PrimaryButton";
 import { parser } from "@/services";
 
 function DataTable({ header, data, dataName, actions }) {
